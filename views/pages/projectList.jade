@@ -1,0 +1,29 @@
+extends ../layout
+
+block main
+  #main
+    .container
+      h2.part-title Finished Projects
+      .row
+        .col-4
+          .card
+            .card-pic
+              div: img(src='pic/wallpaper-kleiner-google-red-square-620.jpg')
+              h3 Example
+            .card-body
+              .description A example for a project show in this card.
+              .card-bottom
+                span May 16
+                span.right ❤ 12
+        each project in projectList
+          .col-4
+            .card
+              .card-pic
+                div: img(src=project.pictureUrl)
+                h3 #{project.name}
+              .card-body
+                .description #{project.description}
+                .card-bottom
+                  span #{dateFormat(project.finishTime)}
+                  span.right ❤ #{project.favorite}
+

@@ -1,16 +1,19 @@
 {
   "name": "xcsoft.hfut.edu.cn",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The website of hfut-xcsoft",
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.14.1",
-    "connect-mongo": "^0.8.2",
     "cookie-parser": "^1.4.0",
-    "express": "^4.13.3",
+    "connect-mongo": "^0.8.2",
     "express-session": "^1.12.1",
-    "jade": "^1.11.0",
+    "express": "^4.13.3",
+    "gulp-sass": "^2.1.0",
+    "gulp": "^3.9.0",
+    "gulp-sourcemaps": "^1.6.0",
     "moment": "^2.10.6",
+    "jade": "^1.11.0",
     "mongoose": "^4.2.5",
     "morgan": "^1.6.1",
     "step": "^0.0.6"

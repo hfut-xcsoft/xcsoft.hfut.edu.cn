@@ -15,8 +15,8 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var app = express();
-var server = require('http').Server(app);
-app.locals.moment = require('moment');
+
+
 
 
 /**
@@ -28,15 +28,17 @@ app.set('view engine', 'jade');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'assets')));
 app.use(cookieParser());
-server.listen(Config.port);
+app.use(session(Config.session));
+app.listen(Config.port);
+app.locals.moment = require('moment');
+app.locals.baseUrl= Config.baseUrl;
 
 /**
  * Handle request by router or socket.io
  */
-//var router = require('./configs/routes');
-//var socket = require('./modules/socket');
+var router = require('./configs/router');
 
-//router(app);
+router(app);
 
 
 /**
@@ -52,6 +54,12 @@ if ('development' == env) {
 console.log('APP started on  port 3000');
 
 
-app.get('/', function (req, res) {
-  res.render('index');
-});
+//app.get('/', function (req, res) {
+//  res.render('index');
+//});
+//
+//app.get('/project', function (req, res) {
+//  res.render('projectList', {
+//    tab: 1
+//  });
+//});

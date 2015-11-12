@@ -4,6 +4,8 @@
  */
 var Config = {
 
+  baseUrl: '/',
+
   // The port of app.js listening
   port: 3000,
 
@@ -16,8 +18,16 @@ var Config = {
     port:'6379'
   },
 
-  // The secret of session middleware
-  secret: 'xcsoft'
+  // Session configs
+  session: {
+    secret: "lib",
+    resave: false,
+    saveUninitialized: true
+  },
+
+  //defaultLanguage: 'zh-cn',
+  defaultLanguage: 'en-us',
+
 };
 
 module.exports = Config;

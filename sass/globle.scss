@@ -1,0 +1,130 @@
+@import 'colors.scss';
+
+body {
+  padding: 0;
+  margin: 0;
+  color: #333;
+  font: {
+    size: 14px;
+    family: 'Microsoft Yahei';
+  }
+  background-color: #f3f3f3;
+}
+
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    color: $purple-light;
+  }
+}
+
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  width: 100%;
+  display: table;
+}
+
+.col-4 {
+  width: 33.33%;
+  float: left;
+}
+
+
+nav {
+  width: 100%;
+  height: 64px;
+  position: fixed;
+  z-index: 2000;
+  background-color: $purple-main;
+  color: #ffffff;
+  box-shadow: #333 0 1px 4px;
+
+  a,
+  a:hover,
+  a:visited {
+    color: #ffffff;
+  }
+
+  a:hover {
+    border-bottom: 3px solid #ffffff;
+  }
+
+  .logo {
+    float: left;
+    width: 150px;
+    font-size: 24px;
+    line-height: 64px;
+  }
+
+  .tab-items {
+    float: right;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 64px;
+
+    > li {
+      float: left;
+      list-style: none;
+      display: block;
+
+      a {
+        margin: 0 12px;
+        padding: 0 10px 19px 10px;
+      }
+
+      > a.active {
+        border-bottom: 3px solid #ffffff;
+      }
+    }
+  }
+}
+
+footer {
+  width: 100%;
+  height: 150px;
+  margin-top: 40px;
+  position: relative;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  background-color: #333333;
+
+  a,
+  a:hover,
+  a:visited {
+    color: #ffffff;
+  }
+
+  a {
+    margin: 0 30px;
+  }
+
+  > div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: 66%;
+    margin: auto;
+
+    > div {
+      margin: 10px 0;
+    }
+  }
+}
+
+.right {
+  display: block;
+  float: right;
+}
