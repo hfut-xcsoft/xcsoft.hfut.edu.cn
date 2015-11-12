@@ -1,0 +1,32 @@
+{
+  "name": "xcsoft.hfut.edu.cn",
+  "version": "0.0.1",
+  "description": "The website of hfut-xcsoft",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "connect-mongo": "^0.8.2",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "jade": "^1.11.0",
+    "moment": "^2.10.6",
+    "mongoose": "^4.2.5",
+    "morgan": "^1.6.1",
+    "step": "^0.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hfut-xcsoft/xcsoft.hfut.edu.cn.git"
+  },
+  "author": "Dremy",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/hfut-xcsoft/xcsoft.hfut.edu.cn/issues"
+  },
+  "homepage": "https://github.com/hfut-xcsoft/xcsoft.hfut.edu.cn#readme"
+}
