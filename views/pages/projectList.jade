@@ -5,7 +5,7 @@ block main
     .container
       h2.part-title Finished Projects
       .row
-        .col-4
+        .col-lg-4.col-md-6
           .card
             .card-pic
               div: img(src='pic/wallpaper-kleiner-google-red-square-620.jpg')
@@ -16,7 +16,7 @@ block main
                 span May 16
                 span.right ❤ 12
         each project in projectList
-          .col-4
+          .col-lg-4.col-md-6
             .card
               .card-pic
                 div: img(src=project.pictureUrl)

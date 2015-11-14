@@ -1,0 +1,8 @@
+$tablet: 480px;
+$desktop: 768px;
+$maxWidth: 1200px;
+
+$sm: (min: 0px, max: $tablet - 1);
+$md: (min: $tablet, max: $desktop - 1);
+$lg: (min: $desktop, max: $maxWidth);
+$sizes: sm, md, lg;

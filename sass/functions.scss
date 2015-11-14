@@ -1,0 +1,11 @@
+@function getSize($sizeName) {
+  @if ($sizeName == sm) {
+    @return $sm;
+  }
+  @if ($sizeName == md) {
+    @return $md;
+  }
+  @if ($sizeName == lg) {
+    @return $lg;
+  }
+}

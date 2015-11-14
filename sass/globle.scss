@@ -1,4 +1,43 @@
 @import 'colors.scss';
+@import 'mixins.scss';
+
+
+
+@each $size in $sizes {
+  $selectorList: ();
+  @for $i from 1 through 12 {
+    $selectorList: append($selectorList, unquote('.col-#{$size}-#{$i}'), 'comma');
+  }
+  #{$selectorList} {
+    float: left;
+    width: 100%;
+  }
+}
+
+@each $size in $sizes {
+  @include minSize($size) {
+    @for $i from 1 through 12 {
+      .col-#{$size}-#{$i} {
+        width: $i / 12 * 100%;
+      }
+    }
+  }
+}
+
+@each $size in $sizes {
+  .hide-#{$size} {
+    @include atSize($size) {
+      display: none;
+    }
+  }
+
+  .visible-#{$size} {
+    display: none;
+    @include atSize($size) {
+      display: block;
+    }
+  }
+}
 
 body {
   padding: 0;
@@ -32,10 +71,6 @@ a {
   display: table;
 }
 
-.col-4 {
-  width: 33.33%;
-  float: left;
-}
 
 
 nav {

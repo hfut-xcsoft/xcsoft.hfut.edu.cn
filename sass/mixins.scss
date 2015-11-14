@@ -1,0 +1,25 @@
+@import 'functions.scss';
+@mixin atSize($device) {
+  @if $device == sm {
+    @media (max-width: map_get($sm, max)) {
+      @content;
+    }
+  } @else if $device == md {
+    @media (min-width: map_get($md, min)) and (max-width: map_get($md, max)) {
+      @content;
+    }
+  } @else if $device == lg {
+    @media (min-width: map_get($lg, min)) {
+      @content;
+    }
+  }
+}
+
+@mixin minSize($size) {
+  $tempSize: getSize($size);
+  $tempWidth: map_get($tempSize, min);
+  @media (min-width: $tempWidth) {
+    @content;
+  }
+}
+
