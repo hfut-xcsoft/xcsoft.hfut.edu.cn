@@ -66,6 +66,28 @@ a {
   margin: 0 auto;
 }
 
+.title-background {
+  background-color: $purple-main;
+  color: #ffffff;
+  padding: 16px;
+
+  > .container {
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    p {
+      font-size: 24px;
+
+      @include minSize(md) {
+        text-align: center;
+      }
+    }
+  }
+}
+
 .row {
   width: 100%;
   display: table;
@@ -80,7 +102,7 @@ nav {
   z-index: 2000;
   background-color: $purple-main;
   color: #ffffff;
-  box-shadow: #333 0 1px 4px;
+  //box-shadow: #333 0 1px 4px;
 
   a,
   a:hover,

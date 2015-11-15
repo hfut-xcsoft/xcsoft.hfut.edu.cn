@@ -1,5 +1,9 @@
 @import 'colors.scss';
 
+.title-background > .container > img {
+  max-width: 450px;
+}
+
 .part-title {
   font-size: 32px;
   color: $purple-light;

@@ -48,4 +48,40 @@
       padding: 8px;
     }
   }
+
+  .avatar {
+    padding-top: 24px;
+    position: relative;
+
+    .avatar-icon {
+      float: left;
+      //margin-top: 24px;
+      margin-left: 16px;
+      width: 40px;
+      height: 40px;
+      -webkit-border-radius: 100%;
+      -moz-border-radius: 100%;
+      border-radius: 100%;
+      overflow: hidden;
+
+      > img {
+        width: 110%;
+        height: 110%;
+        margin: -5%;
+      }
+    }
+
+    .avatar-title {
+      //top: 24px;
+      margin-left: 72px;
+      margin-top: 0px;
+      margin-bottom: 8px;
+    }
+
+
+    .avatar-subtitle {
+      margin-left: 72px;
+    }
+
+  }
 }
