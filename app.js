@@ -26,7 +26,7 @@ mongoose.connect(Config.mongodbUrl);
 app.set('views', './views/pages');
 app.set('view engine', 'jade');
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname, 'assets')));
+app.use(express.static(path.join(__dirname, '')));
 app.use(cookieParser());
 app.use(session(Config.session));
 app.listen(Config.port);
