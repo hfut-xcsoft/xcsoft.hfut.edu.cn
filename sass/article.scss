@@ -70,6 +70,7 @@
         max-height: 180px;
         margin-top: 24px;
         overflow: hidden;
+        opacity: 0.8;
 
         @include minSize(md) {
           float: right;

@@ -1,7 +1,7 @@
-var projectRoute = require('express').Router();
-var Project = require('../models/Project');
+var articleRoute = require('express').Router();
+//var article = require('../models/article');
 
-projectRoute.get('/', function (req, res) {
+articleRoute.get('/', function (req, res) {
 
 
     res.render('articleList', {
@@ -11,4 +11,4 @@ projectRoute.get('/', function (req, res) {
 
 });
 
-module.exports = projectRoute;
+module.exports = articleRoute;

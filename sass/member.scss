@@ -1,0 +1,167 @@
+.memberlist {
+  background-color: #ffffff;
+
+  .title-background {
+    .container > img {
+      width: 90%;
+    }
+  }
+
+  .subtitle {
+    color: $purple-light;
+    margin-top: 24px;
+    margin-left: 16px;
+
+    @include atSize(lg) {
+      font-size: 24px;
+    }
+  }
+
+  a.list-item {
+    display: block;
+    color: #333333;
+
+    @include atSize(lg) {
+      margin-left: 20%;
+    }
+
+    .avatar {
+
+      .avatar-subtitle {
+        border-bottom: 1px #e3e3e3 solid;
+        padding-bottom: 16px;
+
+        .motto {
+          margin-left: 8px;
+          @include fontBlack(0.5);
+        }
+      }
+
+      @include atSize(lg) {
+        &.big {
+          .avatar-icon {
+            width: 72px;
+            height: 72px;
+          }
+
+          .avatar-title {
+            margin-left: 110px;
+            margin-top: 4px;
+            font-size: 24px;
+            font-weight: 100;
+          }
+
+          .avatar-subtitle {
+            margin-left: 110px;
+            padding-bottom: 40px;
+          }
+        }
+      }
+    }
+
+    .list-item:last-child .avatar-subtitle {
+      border-bottom: none;
+    }
+  }
+}
+
+.memberDetail {
+  background-color: #ffffff;
+
+  .title-background {
+    padding-top: 0;
+
+    .username {
+      font-size: 24px;
+      margin-bottom: 24px;
+
+      @include atSize(lg) {
+        font-size: 36px;
+      }
+    }
+  }
+
+  #container-small {
+    max-width: 900px;
+    margin-top: 32px;
+    padding-left: 24px;
+
+    > .row {
+      position: relative;
+    }
+  }
+
+  .group-avatar {
+    @include atSize(lg) {
+      left: 8 / 12 * 100%;
+      position: relative;
+    }
+
+    #avatar {
+      width: 40px;
+      height: 40px;
+      float: left;
+      -webkit-border-radius: 100%;
+      -moz-border-radius: 100%;
+      border-radius: 100%;
+      overflow: hidden;
+
+      @include atSize(lg) {
+
+        width: 72px;
+        height: 72px;
+        float: none;
+        margin: 40px auto;
+      }
+
+      > img {
+        width: 110%;
+        margin: -5%;
+      }
+    }
+
+    #motto {
+      margin-left: 64px;
+      margin-right: 16px;
+
+      @include atSize(lg) {
+        margin-left: 16px;
+      }
+    }
+  }
+
+  .group-info {
+    margin-top: 32px;
+
+    @include atSize(lg) {
+      right: 4 / 12 * 100%;
+      position: relative;
+    }
+
+    .list-item {
+      height: 72px;
+
+      .text {
+        display: inline-block;
+        position: relative;
+        top: -15px;
+        left: 24px;
+        ul {
+          padding-left: 0;
+
+          li {
+            list-style-type: none;
+          }
+        }
+      }
+
+      a,
+      a:visited{
+        color: #333333;
+      }
+      a:hover {
+        color: $purple-light;
+      }
+    }
+  }
+}

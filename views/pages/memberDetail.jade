@@ -1,0 +1,40 @@
+extends ../layout
+block main
+  #main.memberDetail
+    .title-background
+      .container
+        .username John Chafee
+        .habbit Like design and coding
+    .container#container-small
+      .row
+        .col-lg-4.group-avatar
+          #avatar
+            img(src="assets/pic/avatar.jpg")
+          #motto We must be knowledgeable to everything because we are living in a competitive world.
+        .col-lg-8.col-md-12.group-info
+          .row
+            .col-md-6.list-item
+              span.icon.icon-username(title="User name")
+              span.text John Chafee
+            .col-md-6.list-item
+              span.icon.icon-realname(title="Real name")
+              span.text 约翰·查菲
+            .col-md-6.list-item
+              span.icon.icon-github(title="GitHub user name")
+              a.text(href="http://github.com", target="_blank") John chafee
+            .col-md-6.list-item
+              span.icon.icon-blog(title="Blog site")
+              a.text(href="http://github.com", target="_blank") johnchafee.com
+            .col-md-6.list-item
+              span.icon.icon-email(title="Email")
+              span.text johnchafee@mail.com
+            .col-md-6.list-item
+              span.icon.icon-phone(title="Phone number")
+              span.text 12262231258
+            .col-md-6.list-item
+              span.icon.icon-project(title="Involved projects")
+              span.text
+                ul
+                  li: a(href="project/example-project") Example Project
+
+

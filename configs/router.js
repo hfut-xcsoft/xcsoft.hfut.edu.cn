@@ -13,6 +13,7 @@ module.exports = function (app) {
 
   app.use('/project', require('../routes/project'));
   app.use('/article', require('../routes/article'));
+  app.use('/member', require('../routes/member'));
   app.use('/', require('../routes/default'));
 
 };

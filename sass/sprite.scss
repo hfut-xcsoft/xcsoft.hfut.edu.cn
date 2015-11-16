@@ -1,0 +1,48 @@
+.icon {
+  display: inline-block;
+  background-size: 80px 160px;
+  width: 40px;
+  height: 40px;
+}
+.icon-username {
+  background: {
+    image: url(../pic/info-icon.svg);
+    position: 0 0;
+  }
+}
+.icon-realname {
+  background: {
+    image: url(../pic/info-icon.svg);
+    position: 40px 0;
+  }
+}
+.icon-github {
+  background: {
+    image: url(../pic/info-icon.svg);
+    position: 0 -40px;
+  }
+}
+.icon-blog {
+  background: {
+    image: url(../pic/info-icon.svg);
+    position: 40px -40px;
+  }
+}
+.icon-email {
+  background: {
+    image: url(../pic/info-icon.svg);
+    position: 0 -80px;
+  }
+}
+.icon-phone {
+  background: {
+    image: url(../pic/info-icon.svg);
+    position: 40px -80px;
+  }
+}
+.icon-project {
+  background: {
+    image: url(../pic/info-icon.svg);
+    position: 0 -120px;
+  }
+}
