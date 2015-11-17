@@ -7,6 +7,7 @@ module.exports = {
   },
 
   footer: {
+    contact_us: 'Contact Us',
     join_us: 'Join Us',
     language: 'Language'
   },

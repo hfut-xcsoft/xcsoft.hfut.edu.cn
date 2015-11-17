@@ -1,9 +1,9 @@
 .memberlist {
   background-color: #ffffff;
 
-  .title-background {
+  .header {
     .container > img {
-      width: 90%;
+      width: 80%;
     }
   }
 
@@ -18,8 +18,8 @@
   }
 
   a.list-item {
-    display: block;
-    color: #333333;
+    //display: block;
+    //color: #333333;
 
     @include atSize(lg) {
       margin-left: 20%;
@@ -71,14 +71,14 @@
   .title-background {
     padding-top: 0;
 
-    .username {
-      font-size: 24px;
-      margin-bottom: 24px;
-
-      @include atSize(lg) {
-        font-size: 36px;
-      }
-    }
+    //.username {
+    //  font-size: 24px;
+    //  margin-bottom: 24px;
+    //
+    //  @include atSize(lg) {
+    //    font-size: 36px;
+    //  }
+    //}
   }
 
   #container-small {

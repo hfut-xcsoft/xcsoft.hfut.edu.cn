@@ -2,7 +2,7 @@ extends ../layout
 
 block main
   #main.articlelist
-    .title-background
+    .header
       .container
         #article-logo
           img(src="assets/pic/article.svg")
@@ -16,36 +16,39 @@ block main
               div.avatar
                 .avatar-icon
                   img(src="assets/pic/avatar.jpg")
-                h3.avatar-title Evolving the Google identity
+                h3.avatar-title
+                  a(href="article/evolving-the-Google-identity") Evolving the Google identity
                 .avatar-subtitle
                   span.author Case Study
                   span.date May 16
               .content
-                .pic
+                a.pic(href="article/evolving-the-Google-identity")
                   img(src="assets/pic/components-lists-6_large_mdpi.png")
                 .summary Google is not a conventional company. Our mission—to take the world’s information and make it universally accessible and useful—continues to evolve. Last year we introduced Material Design to help designers and developers embrace an expanding, multi-device, multi-screen world. With those considerations in mind, we are excited to share a new brand identity that aims to make Google more accessible and useful to our users—wherever they may encounter it.
             .list-item
               div.avatar
                 .avatar-icon
                   img(src="assets/pic/avatar.jpg")
-                h3.avatar-title Evolving the Google identity
+                h3.avatar-title
+                  a(href="article/evolving-the-Google-identity") Evolving the Google identity
                 .avatar-subtitle
                   span.author Case Study
                   span.date May 16
               .content
-                .pic
+                a.pic(href="article/evolving-the-Google-identity")
                   img(src="assets/pic/components-lists-6_large_mdpi.png")
                 .summary Google is not a conventional company. Our mission—to take the world’s information and make it universally accessible and useful—continues to evolve. Last year we introduced Material Design to help designers and developers embrace an expanding, multi-device, multi-screen world. With those considerations in mind, we are excited to share a new brand identity that aims to make Google more accessible and useful to our users—wherever they may encounter it.
             .list-item
               div.avatar
                 .avatar-icon
                   img(src="assets/pic/avatar.jpg")
-                h3.avatar-title Evolving the Google identity
+                h3.avatar-title
+                    a(href="article/evolving-the-Google-identity") Evolving the Google identity
                 .avatar-subtitle
                   span.author Case Study
                   span.date May 16
               .content
-                .pic
+                a.pic(href="article/evolving-the-Google-identity")
                   img(src="assets/pic/components-lists-6_large_mdpi.png")
                 .summary Google is not a conventional company. Our mission—to take the world’s information and make it universally accessible and useful—continues to evolve. Last year we introduced Material Design to help designers and developers embrace an expanding, multi-device, multi-screen world. With those considerations in mind, we are excited to share a new brand identity that aims to make Google more accessible and useful to our users—wherever they may encounter it.
 
@@ -71,7 +74,6 @@ block jsCode
       } else {
         picWidth = $('.content').width();
       }
-      console.log(picWidth);
-        $('#list .pic').css('max-height', picWidth * 9 / 16 + 'px');
+      $('#list .pic').css('max-height', picWidth * 9 / 16 + 'px');
     };
 

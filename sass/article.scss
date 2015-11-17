@@ -1,6 +1,6 @@
 .articlelist {
 
-  .title-background {
+  .header {
 
     #article-logo {
       max-width: 400px;
@@ -39,24 +39,30 @@
 
     .list-item {
 
-       .avatar-subtitle {
+      .avatar-title {
+        > a {
+          display: block;
+        }
+      }
+      .avatar-subtitle {
 
         @include fontBlack(0.5);
 
-         > .date {
-           margin-left: 24px;
+        > .date {
+          margin-left: 24px;
 
-           @include atSize(sm) {
-             float: right;
-             margin-right: 16px;
-           }
-         }
+          @include atSize(sm) {
+            float: right;
+            margin-right: 16px;
+          }
+        }
       }
 
 
       > .content {
         margin-top: 16px;
         border-bottom: 1px #eee solid;
+
         @include atSize(sm) {
           width: 100%;
         }
@@ -66,7 +72,8 @@
           padding-bottom: 36px;
         }
       }
-      .pic {
+      a.pic {
+        display: block;
         max-height: 180px;
         margin-top: 24px;
         overflow: hidden;
@@ -91,6 +98,7 @@
 
         @include  atSize(sm) {
           margin: 16px;
+          margin-bottom: 32px;
         }
 
         @include minSize(md) {
@@ -102,7 +110,19 @@
     }
 
   }
+}
 
+.articleDetail {
+  background-color: #ffffff;
 
+  .header {
 
+    .info > .date {
+      margin-left: 24px;
+    }
+
+    .author {
+      margin-top: 12px;
+    }
+  }
 }

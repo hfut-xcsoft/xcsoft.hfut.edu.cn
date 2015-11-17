@@ -1,5 +1,40 @@
 @import 'colors.scss';
 
+.header {
+
+  background-color: $purple-main;
+  color: #ffffff;
+  padding: 16px;
+
+  > .container {
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 24px;
+      font-size: 24px;
+
+      @include atSize(lg) {
+        font-size: 36px;
+        font-weight: 100;
+      }
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    p {
+      font-size: 24px;
+
+      @include minSize(md) {
+        text-align: center;
+      }
+    }
+  }
+
+}
+
 
 .card {
   margin: 8px;
@@ -85,5 +120,48 @@
   .avatar-subtitle {
     margin-left: 72px;
   }
+}
 
+.article {
+  font-size: 17px;
+  line-height: 1.88;
+  padding: 16px;
+  @include fontBlack(0.7);
+
+  * {
+    margin: 0;
+  }
+
+  @include atSize(lg) {
+    padding: 16px 60px;
+  }
+
+  h2 {
+    font-weight: 300;
+    font-size: 20px;
+    margin-top: 36px;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 17px;
+    margin-top: 12px;
+  }
+
+  p {
+    margin: 0;
+    padding-bottom: 24px;
+
+    img {
+      padding-top: 24px;
+      max-width: 100%;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
+  li {
+    line-height: 1.5;
+    padding-bottom: 14px;
+  }
 }
