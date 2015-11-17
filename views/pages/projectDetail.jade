@@ -1,0 +1,72 @@
+extends ../layout
+block main
+  #main.projectDetail
+    .header
+      .container
+        h3 Example Project
+        .info A example project for the design
+    .container
+      .card
+        .row
+          .col-md-6
+            #pic
+              img(src="assets/pic/wallpaper-kleiner-google-red-square-620.jpg")
+          .col-md-6
+            .info
+              .row
+                .col-sm-6
+                  .prop Designer
+                .col-sm-6
+                  .value
+                    ul
+                      li
+                        a.paper(href="member/john-chafee")
+                          .paper-name John Chafee
+                          .paper-avatar
+                            img(src="assets/pic/avatar.jpg")
+              .row
+                .col-sm-6
+                  .prop Developer
+                .col-sm-6
+                  .value
+                    ul
+                      li
+                        a.paper(href="member/john-chafee")
+                          .paper-name John Chafee
+                          .paper-avatar.avatar-icon
+                            img(src="assets/pic/avatar.jpg")
+                      li
+                        a.paper(href="member/john-chafee")
+                          .paper-name John Chafee
+                          .paper-avatar.avatar-icon
+                            img(src="assets/pic/avatar.jpg")
+              .row
+                .col-sm-6
+                  .prop Technology
+                .col-sm-6
+                  .value
+                    ul.style
+                      li Illustrator
+                      li Node.js
+              .row
+                .col-sm-6
+                  .prop Completion Date
+                .col-sm-6
+                  .value 2015-11-17
+      .card
+        .article
+          h1 Example Project
+          p A example project for the design
+          h2 Quick Start
+          p Open the browser, and come to this website
+
+
+block jsCode
+  script.
+    $(document).ready(resize);
+    $(window).resize(resize);
+
+    function resize() {
+      var picWidth = $('#pic').width();
+      $('#pic').css('max-height', picWidth * 9 / 16 + 'px');
+    }

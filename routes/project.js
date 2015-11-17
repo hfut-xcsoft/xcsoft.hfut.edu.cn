@@ -14,8 +14,13 @@ projectRoute.get('/', function (req, res) {
       projectList: projectList
     });
   })
+});
 
-
+projectRoute.get('/:projectName', function (req, res) {
+  var projectName = req.params.projectName;
+  res.render('projectDetail', {
+    tab: 1
+  })
 });
 
 projectRoute.route('/new')

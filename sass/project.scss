@@ -5,14 +5,73 @@
 }
 
 .part-title {
-  font-size: 32px;
+  font-size: 16px;
+  margin-left: 14px;
+  font-weight: normal;
   color: $purple-light;
+
+  @include minSize(md) {
+    font-size: 24px;
+  }
 }
 
 
 div#main {
   padding-top: 64px;
 }
+
+.projectDetail {
+
+  .card {
+
+    @include minSize(md) {
+      padding: 16px;
+    }
+
+    .info {
+      padding: 24px 0 32px 16px;
+
+      @include atSize(lg) {
+        padding-left: 48px;
+      }
+    }
+  }
+
+  #pic {
+    width: 100%;
+    overflow: hidden;
+
+    > img {
+      width: 100%;
+    }
+  }
+
+  .value {
+
+    ul {
+      padding: 0;
+      margin: 0;
+      margin-bottom: 24px;
+
+      > li {
+        list-style: none;
+      }
+
+      &.style > li {
+        list-style: circle;
+        margin-left: 24px;
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  .article {
+    p {
+      padding-bottom: 12px;
+    }
+  }
+}
+
 
 
 

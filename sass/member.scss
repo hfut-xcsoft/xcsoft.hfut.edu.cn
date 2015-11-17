@@ -68,20 +68,8 @@
 .memberDetail {
   background-color: #ffffff;
 
-  .title-background {
-    padding-top: 0;
 
-    //.username {
-    //  font-size: 24px;
-    //  margin-bottom: 24px;
-    //
-    //  @include atSize(lg) {
-    //    font-size: 36px;
-    //  }
-    //}
-  }
-
-  #container-small {
+  .container-small {
     max-width: 900px;
     margin-top: 32px;
     padding-left: 24px;
@@ -92,6 +80,7 @@
   }
 
   .group-avatar {
+
     @include atSize(lg) {
       left: 8 / 12 * 100%;
       position: relative;
