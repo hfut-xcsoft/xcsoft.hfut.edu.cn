@@ -68,18 +68,28 @@
 .memberDetail {
   background-color: #ffffff;
 
-
   .container-small {
     max-width: 900px;
     margin-top: 32px;
-    padding-left: 24px;
 
     > .row {
       position: relative;
+
+      width: 95%;
+      padding-left: 5%;
+
+      @include atSize(lg) {
+        width: 100%;
+        padding-left: 0;
+      }
     }
   }
 
   .group-avatar {
+
+    @include atSize(sm) {
+      //padding-left: 24px;
+    }
 
     @include atSize(lg) {
       left: 8 / 12 * 100%;

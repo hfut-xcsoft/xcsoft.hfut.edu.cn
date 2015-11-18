@@ -7,7 +7,7 @@ block main
         #article-logo
           img(src="assets/pic/article.svg")
           span ARTICLE
-        p Give you the most valuable knowledge and technology
+        p #{lang.article.header_text}
     .container
       .row
         .col-lg-9
@@ -53,13 +53,11 @@ block main
                 .summary Google is not a conventional company. Our mission—to take the world’s information and make it universally accessible and useful—continues to evolve. Last year we introduced Material Design to help designers and developers embrace an expanding, multi-device, multi-screen world. With those considerations in mind, we are excited to share a new brand identity that aims to make Google more accessible and useful to our users—wherever they may encounter it.
         .col-lg-3
           .card#ranklist
-            .subtitle Rank List
+            .subtitle #{lang.article.rank_list}
             .list
               a(href="article/evolving-the-google-identity") Evolving the Google identity Evolving the Google identity
               a(href="article/evolving-the-google-identity") Evolving the Google identity
               a(href="article/evolving-the-google-identity") Evolving the Google identity
-
-
 
 block jsCode
   script.

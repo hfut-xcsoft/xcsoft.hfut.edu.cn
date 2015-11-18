@@ -1,6 +1,6 @@
 module.exports = {
 
-  tab: {
+  nav: {
     articles: '文章',
     projects: '项目',
     members: '成员'
@@ -12,7 +12,24 @@ module.exports = {
     language: '切换语言'
   },
 
+  article: {
+    header_text: 'Give you the most valuable knowledge and technology',
+    rank_list: 'Rank List'
+  },
+
   project: {
-    finished_project: '项目成果'
+    header_text: 'Everything we make is the best, with all our hearts',
+    finished_project: '项目成果',
+
+    designer: 'Designer',
+    developer: 'Developer',
+    technology: 'Technology',
+    Completion_date: 'Completion Date'
+  },
+
+  member: {
+    header_text: 'We work and develop together, enjoy ourselves',
+    core_members: 'Core Members',
+    common_members: 'Common Members'
   }
 };

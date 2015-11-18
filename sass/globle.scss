@@ -50,6 +50,13 @@ body {
   background-color: #f3f3f3;
   
   #main {
+    padding-top: 56px;
+
+    @include minSize(md) {
+      padding-top: 64px;
+    }
+
+
     @include atSize(lg) {
       padding-bottom: 40px;
 
@@ -100,6 +107,10 @@ nav {
   color: #ffffff;
   //box-shadow: #333 0 1px 4px;
 
+  @include atSize(sm) {
+    height: 56px;
+  }
+
   .container {
     a,
     a:hover,
@@ -119,6 +130,10 @@ nav {
     margin-left: 16px;
     font-size: 24px;
     line-height: 64px;
+
+    @include atSize(sm) {
+      line-height: 60px;
+    }
   }
 
   .tab-items {

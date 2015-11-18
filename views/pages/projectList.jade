@@ -5,7 +5,7 @@ block main
     .header
       .container
         img(src="assets/pic/project.svg")
-        p Everything we make is the best, with all our hearts
+        p #{lang.project.header_text}
     .container
       h2.part-title Finished Projects
       .row
@@ -18,7 +18,7 @@ block main
               .description A example for a project show in this card.
               .card-bottom
                 span May 16
-                span.right ❤ 12
+                //span.right ❤ 12
         each project in projectList
           .col-lg-4.col-md-6
             a.card(href="project/example-project")
@@ -29,5 +29,5 @@ block main
                 .description #{project.description}
                 .card-bottom
                   span #{dateFormat(project.finishTime)}
-                  span.right ❤ #{project.favorite}
+                  //span.right ❤ #{project.favorite}
 
