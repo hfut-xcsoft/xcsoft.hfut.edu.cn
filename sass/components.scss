@@ -31,13 +31,14 @@
 
   position: fixed;
   top: 0;
-  left: 0;
+  left: -80%;
   bottom: 0;
   background-color: #ffffff;
   width: 80%;
-  visibility: hidden;
+  //visibility: hidden;
   overflow-x: hidden;
   overflow-y: auto;
+  transition: left 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
 
   #left-nav-menu {
     position: relative;
@@ -56,6 +57,12 @@
         line-height: 48px;
       }
     }
+
+
+  }
+
+  &.show {
+    left: 0 !important;
   }
 }
 #dark.show,
