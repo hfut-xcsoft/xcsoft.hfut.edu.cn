@@ -33,8 +33,7 @@ projectRoute.route('/new')
       name: projectForm.projectName,
       description: projectForm.description,
       finishTime: Date.now(),
-      pictureUrl: projectForm.pictureUrl,
-      favorite: 0,
+      picture: projectForm.picture,
       status: 1
     });
     project.save(function (err, project) {

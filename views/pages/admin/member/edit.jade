@@ -1,0 +1,67 @@
+extends ../layout
+block main
+  div#admin-main
+    form(method="post")
+      input.hide(name="_id", value='#{member._id}')
+      .form-group
+        span 用户名（英文):
+        input(name="username", value="#{member.username}")
+      .form-group
+        span 密码:
+        input(name="password", type="password", value="#{member.password}")
+      .form-group
+        span 真实姓名:
+        input(name="real_name", value="#{member.real_name}")
+
+      .form-group
+        span 角色
+        select(name="role")
+          option(value="1") 普通成员
+          option(value="2") 核心成员
+      .form-group
+        span 用户类型
+        select(name="user_type")
+          option(value="common") 普通用户
+          option(value="admin") 网站管理员
+      .form-group
+        span 联系电话:
+        input(name="phone", value="#{member.phone}")
+      .form-group
+        span 邮箱:
+        input(name="email", value="#{member.email}")
+      .form-group
+        span 头像:
+        input(name="avatar", value="#{member.avatar}")
+      .form-group
+        span 爱好:
+        input(name="habit", value="#{member.habit}")
+      .form-group
+        span 箴言:
+        input(name="motto", value="#{member.motto}")
+      .form-group
+        span GitHub用户名:
+        input(name="github[username]", value="#{member.github.username}")
+      .form-group
+        span GitHub URL:
+        input(name="github[url]", value="#{member.github.url}")
+      .form-group
+        span 博客网站名:
+        input(name="blog[name]", value="#{member.blog.name}")
+      .form-group
+        span 博客网站URL:
+        input(name="blog[url]", value="#{member.blog.url}")
+      .form-group
+        span 账户状态:
+        select(name="status", value="#{member.statue}")
+          option(value="1") 正常
+          option(value="0") 禁用
+      .form-group
+        input(type="submit")
+
+block jsCode
+  script.
+    $(function () {
+      $('select[name="role"]').val('#{member.role}');
+      $('select[name="user_type"]').val('#{member.user_type}');
+      $('select[name="status"]').val('#{member.status}');
+    })

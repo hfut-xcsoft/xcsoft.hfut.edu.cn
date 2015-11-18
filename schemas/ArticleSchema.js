@@ -5,13 +5,17 @@ var ObjectId = Schema.Types.ObjectId;
 var ArticleSchema = new Schema({
   title: String,
   shortTitle: String,
-  content: String,
-  //author: {
-  //  type: ObjectId,
-  //  ref: 'Member'
-  //},
-  publishTime: Date,
+  content: {
+    source: String,
+    html: String
+  },
+  author: {
+    type: ObjectId,
+    ref: 'Member'
+  },
+  time: Date,
   tag: String,
+  picture: String,
   status: Number
 });
 

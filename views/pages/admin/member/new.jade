@@ -1,0 +1,23 @@
+extends ../layout
+
+block main
+  div#admin-main
+    form(method="post")
+      .form-group
+        span 用户名（英文):
+        input(name="username")
+      .form-group
+        span 密码:
+        input(name="password", type="password")
+      .form-group
+        span 角色
+        select(name="role")
+          option(value="1") 普通成员
+          option(value="2") 核心成员
+      .form-group
+        span 用户类型
+        select(name="user_type")
+          option(value="common") 普通用户
+          option(value="admin") 网站管理员
+      .form-group
+        input(type="submit")

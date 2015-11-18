@@ -11,4 +11,8 @@ lib.get('/lang', function (req, res) {
   res.redirect(req.headers.referer);
 });
 
+lib.get('/login', function (req, res) {
+  res.render('admin/login');
+});
+
 module.exports = lib;

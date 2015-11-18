@@ -6,22 +6,20 @@ var ProjectSchema = new Schema({
 
   name: String,
   description: String,
-  detail: String,
-  //leader: {
-  //  type: ObjectId,
-  //  ref: 'Member'
-  //},
-  //designer: [{
-  //  type: ObjectId,
-  //  ref: 'Member'
-  //}],
-  //developer: [{
-  //  type: ObjectId,
-  //  ref: 'Member'
-  //}],
+  detail: {
+    source: String,
+    html: String
+  },
+  designer: [{
+    type: ObjectId,
+    ref: 'Member'
+  }],
+  developer: [{
+    type: ObjectId,
+    ref: 'Member'
+  }],
   finishTime: Date,
-  pictureUrl: String,
-  favorite: Number,
+  picture: String,
   status: Number
 });
 
@@ -34,6 +32,6 @@ ProjectSchema.statics = {
       .exec(callback);
   }
 
-}
+};
 
 module.exports = ProjectSchema;

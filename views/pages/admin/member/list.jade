@@ -1,0 +1,13 @@
+extends ../layout
+block main
+  #admin-main
+    a(href="lib/admin/member/new") 添加成员
+    table
+      thead
+        th 用户名
+        th 真实姓名
+      tbody
+        each member in memberList
+          tr
+            td: a(href="lib/admin/member/#{member.username_db}") #{member.username}
+            td #{member.real_name}
