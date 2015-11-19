@@ -38,26 +38,26 @@ block main
                 a.pic(href="article/evolving-the-Google-identity")
                   img(src="assets/pic/components-lists-6_large_mdpi.png")
                 .summary Google is not a conventional company. Our mission—to take the world’s information and make it universally accessible and useful—continues to evolve. Last year we introduced Material Design to help designers and developers embrace an expanding, multi-device, multi-screen world. With those considerations in mind, we are excited to share a new brand identity that aims to make Google more accessible and useful to our users—wherever they may encounter it.
-            .list-item
-              div.avatar
-                .avatar-icon
-                  img(src="assets/pic/avatar.jpg")
-                h3.avatar-title
-                    a(href="article/evolving-the-Google-identity") Evolving the Google identity
-                .avatar-subtitle
-                  span.author Case Study
-                  span.date May 16
-              .content
-                a.pic(href="article/evolving-the-Google-identity")
-                  img(src="assets/pic/components-lists-6_large_mdpi.png")
-                .summary Google is not a conventional company. Our mission—to take the world’s information and make it universally accessible and useful—continues to evolve. Last year we introduced Material Design to help designers and developers embrace an expanding, multi-device, multi-screen world. With those considerations in mind, we are excited to share a new brand identity that aims to make Google more accessible and useful to our users—wherever they may encounter it.
+            each article in articleList
+              .list-item
+                div.avatar
+                  .avatar-icon
+                    img(src="assets/pic/avatar.jpg")
+                  h3.avatar-title
+                      a(href="article/#{article.title_short}") #{article.title}
+                  .avatar-subtitle
+                    span.tag #{article.tag}
+                    span.date #{dateFormat(article.time)}
+                .content
+                  a.pic(href="article/#{article.title_short}")
+                    img(src="assets/pic/components-lists-6_large_mdpi.png")
+                  .summary #{article.summary}
         .col-lg-3
           .card#ranklist
             .subtitle #{lang.article.rank_list}
             .list
-              a(href="article/evolving-the-google-identity") Evolving the Google identity Evolving the Google identity
-              a(href="article/evolving-the-google-identity") Evolving the Google identity
-              a(href="article/evolving-the-google-identity") Evolving the Google identity
+              each article in clickRankList
+                a(href="article/#{article.title_short}") #{article.title}
 
 block jsCode
   script.

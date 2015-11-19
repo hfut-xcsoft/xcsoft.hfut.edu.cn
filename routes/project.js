@@ -18,9 +18,17 @@ projectRoute.get('/', function (req, res) {
 
 projectRoute.get('/:projectName', function (req, res) {
   var projectName = req.params.projectName;
-  res.render('projectDetail', {
-    tab: 1
+  Project.getProjectByName(projectName, function (err, project) {
+    if (project == null) {
+      return res.render('404');
+    }
+
+    res.render('projectDetail', {
+      project: project,
+      tab: 1
+    })
   })
+
 });
 
 projectRoute.route('/new')

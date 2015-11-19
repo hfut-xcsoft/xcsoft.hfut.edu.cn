@@ -21,7 +21,7 @@ block main
                 //span.right ❤ 12
         each project in projectList
           .col-lg-4.col-md-6
-            a.card(href="project/example-project")
+            a.card(href="project/#{project.name_short}")
               .card-pic
                 div: img(src=project.picture)
                 h3 #{project.name}

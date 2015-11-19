@@ -25,7 +25,7 @@ var app = express();
 mongoose.connect(Config.mongodbUrl);
 app.set('views', './views/pages');
 app.set('view engine', 'jade');
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '')));
 app.use(cookieParser());
 app.use(session(Config.session));

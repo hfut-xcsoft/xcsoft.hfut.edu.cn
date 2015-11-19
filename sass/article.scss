@@ -68,7 +68,7 @@
           width: 100%;
 
           > .summary {
-            max-height: 190px;
+            max-height: 224px;
             overflow: hidden;
           }
         }
@@ -100,7 +100,7 @@
 
       .summary {
         font-size: 14px;
-
+        line-height: 1.8;
         @include fontBlack(0.6);
 
         @include  atSize(sm) {
@@ -109,7 +109,7 @@
         }
 
         @include minSize(md) {
-          max-height: 126px;
+          height: 174px;
           overflow: hidden;
           width: 60%;
         }

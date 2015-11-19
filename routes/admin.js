@@ -1,7 +1,23 @@
 var adminRouter = require('express').Router();
 var baseUrl = require('../configs/config').baseUrl;
 var Member = require('../models/Member');
+var Article = require('../models/Article');
+var Project = require('../models/Project');
+var utils = require('../middlewares/utils');
+var marked = require('marked');
+var step = require('step');
 var _ = require('underscore');
+
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  smartypants: false
+});
 
 adminRouter.get('/member', function (req, res) {
 
@@ -72,16 +88,79 @@ adminRouter.get('/article', function (req, res) {
 
 adminRouter.route('/article/new')
   .get(function (req, res) {
-    res.render('admin/article/new');
+    Member.getAllMembers(function (err, memberList) {
+      res.render('admin/article/new', {
+        memberList: memberList
+      });
+    })
   })
   .post(function (req, res) {
-    res.redirect(baseUrl + 'lib/article')
+
+    var articleForm = req.body;
+
+    var articleHtml = marked(articleForm.content.source);
+    console.log(articleHtml);
+
+    var _article = new Article({
+      title: articleForm.title,
+      title_short: utils.changeToDBStr(articleForm.title_short),
+      summary: articleForm.summary,
+      author: articleForm.author,
+      tag: articleForm.tag,
+      status: 1,
+      content: {
+        source:  articleForm.content.source,
+        html: articleHtml
+      }
+    });
+    _article.save(function (err, article) {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      res.redirect(baseUrl + 'lib/admin/article/' + article.title_short);
+    });
   });
 
-adminRouter.get('/article/:articleName', function (req, res) {
-
-  res.render('admin/article/edit');
+adminRouter.post('/article/preview', function (req, res) {
+  var content = req.body.content;
+  var html = marked(content);
+  res.send(html);
+  res.end();
 });
+
+adminRouter.route('/article/:articleName')
+  .get(function (req, res) {
+    var articleName = req.params.articleName;
+    step(
+      function () {
+        Article.getArticleByName(articleName, this.parallel());
+        Member.getAllMembers(this.parallel());
+      },
+      function (err, article, memberList) {
+        if (article == null) {res.render('admin/notFound'); return;}
+        res.render('admin/article/edit', {
+          article: article,
+          memberList: memberList
+        });
+      }
+    )
+  })
+  .post(function (req, res) {
+    var articleForm = req.body;
+    articleForm.title_short = utils.changeToDBStr(articleForm.title_short);
+    Article.findById(articleForm._id, function (err, article) {
+      if (err) {console.log(err); return;}
+      articleForm.content.html = marked(articleForm.content["source"]);
+      var _article = _.extend(article, articleForm);
+      _article.save(function (err, article) {
+        if (err) {console.log(err); return;}
+        res.redirect(baseUrl + 'lib/admin/article/' + article.title_short);
+      });
+    })
+  })
+
+
 
 
 
@@ -92,16 +171,92 @@ adminRouter.get('/project', function (req, res) {
 
 adminRouter.route('/project/new')
   .get(function (req, res) {
-    res.render('admin/project/new');
+    Member.getAllMembers(function (err, memberList) {
+      res.render('admin/project/new', {
+        memberList: memberList
+      });
+    })
   })
   .post(function (req, res) {
-    res.redirect(baseUrl + 'lib/project')
+
+    var projectForm = req.body;
+
+    var detailHtml = marked(projectForm.detail.source);
+    console.log(detailHtml);
+
+    var _project = new Project({
+      name: projectForm.name,
+      name_short: utils.changeToDBStr(projectForm.name_short),
+      description: projectForm.description,
+      designer: projectForm.designer,
+      developer: projectForm.developer,
+      technology: projectForm.technology,
+      status: 1,
+      detail: {
+        source:  projectForm.detail.source,
+        html: detailHtml
+      }
+    });
+    _project.save(function (err, project) {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      res.redirect(baseUrl + 'lib/admin/project/' + project.name_short);
+    });
+
+
   });
 
-adminRouter.get('/project/:projectName', function (req, res) {
+adminRouter.route('/project/:projectName')
+  .get(function (req, res) {
 
-  res.render('admin/project/edit');
-});
+    var projectName = req.params.projectName;
+    step(
+      function () {
+        Project.getProjectByName(projectName, this.parallel());
+        Member.getAllMembers(this.parallel());
+      },
+      function (err, project, memberList) {
+        if (project == null) {res.render('admin/notFound'); return;}
+
+        var designerId = [];
+        for (var i in project.designer) {
+          if (project.designer[i]._id === undefined) break;
+          designerId.push('\'' + project.designer[i]._id + '\'');
+        }
+        var developerId = [];
+        for (var i in project.developer) {
+          if (project.developer[i]._id === undefined) break;
+          developerId.push('\'' + project.developer[i]._id + '\'');
+        }
+
+        res.render('admin/project/edit', {
+          project: project,
+          designerId: designerId,
+          developerId: developerId,
+          memberList: memberList
+        });
+      }
+    )
+  })
+  .post(function (req, res) {
+    var projectForm = req.body;
+    projectForm.name_short = utils.changeToDBStr(projectForm.name_short);
+
+    Project.findById(projectForm._id, function (err, project) {
+
+      if (err) {console.log(err); return;}
+
+      projectForm.detail.html = marked(projectForm.detail["source"]);
+      var _project = _.extend(project, projectForm);
+      _project.save(function (err, project) {
+        if (err) {console.log(err); return;}
+
+        res.redirect(baseUrl + 'lib/admin/project/' + project.name_short);
+      });
+    })
+  })
 
 module.exports = adminRouter;
 

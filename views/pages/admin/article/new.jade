@@ -1,0 +1,26 @@
+extends ../layout
+block main
+  div#admin-main
+    form(method="post")
+      .form-group
+        span 文章标题
+        input(name="title")
+      .form-group
+        span 英文标题（作为URL标识文章，为带空格的单词或句子）
+        input(name="title_short")
+      .form-group
+        span 作者
+        select(name="author")
+          each member in memberList
+            option(value="#{member._id}") #{member.username}
+      .form-group
+        span 标签
+        input(name="tag")
+      .form-group
+        span 摘要
+        input(name="summary")
+      .form-group
+        span 文章内容（请使用MarkDown语法）
+        textarea(name="content[source]")
+      .form-group
+        input(type="submit")

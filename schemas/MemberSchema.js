@@ -1,5 +1,6 @@
 var Schema = require('mongoose').Schema;
-
+//var Member = require('../models/Member');
+var mongoose = require("mongoose");
 var ObjectId = Schema.Types.ObjectId;
 
 var MemberSchema = new Schema({
@@ -28,14 +29,18 @@ var MemberSchema = new Schema({
 MemberSchema.pre('save', function (next) {
   var username_db = this.username.toLowerCase().replace(/\s+/, '-');
   if (this.isNew) {
-    this.getMemberByName(username_db, function (err, member) {
-      if (member == null) {next(new Error('Existed'))}
-
-      this.username_db = username_db;
+    var self = this;
+    mongoose.models["Member"].findOne({username_db: username_db}, function (err, member) {
+      if (member != null) {
+        next(new Error('Existed'))
+      }
+      self.username_db = username_db;
+      console.log(this.username_db);
       next();
     })
+  } else {
+    next();
   }
-  next();
 });
 
 MemberSchema.statics = {
@@ -48,6 +53,12 @@ MemberSchema.statics = {
   getAllMembers: function (callback) {
     return this
       .find({})
+      .exec(callback);
+  },
+
+  getMemberListByRole: function (role, callback) {
+    return this
+      .find({role: role})
       .exec(callback);
   }
 }

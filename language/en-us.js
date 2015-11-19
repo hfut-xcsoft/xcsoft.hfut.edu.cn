@@ -30,6 +30,7 @@ module.exports = {
   member: {
     header_text: 'We work and develop together, enjoy ourselves',
     core_members: 'Core Members',
-    common_members: 'Common Members'
+    common_members: 'Common Members',
+    retired_members: 'Retired Members'
   }
 };

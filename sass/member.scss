@@ -143,13 +143,16 @@
       .text {
         display: inline-block;
         position: relative;
-        top: -15px;
-        left: 24px;
+        top: -28px;
+        left: 65px;
+
         ul {
-          padding-left: 0;
+          padding-left: 12px;
+          margin: 0;
 
           li {
-            list-style-type: none;
+            list-style-type: circle;
+            margin-bottom: 8px;
           }
         }
       }

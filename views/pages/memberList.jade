@@ -6,41 +6,18 @@ block main
         img(src="assets/pic/member.svg")
         p #{lang.member.header_text}
     .container
-      .subtitle #{lang.member.core_members}
-      .row
-        .col-lg-9.list
-          a.list-item(href="member/john-chafee")
-            .avatar.big
-              .avatar-icon
-                img(src="assets/pic/avatar.jpg")
-              h3.avatar-title John Chafee
-              .avatar-subtitle
-                span.habbit Like design and coding
-                span.motto — We must be knowledgeable to everything because we are living in a competitive world.
-          a.list-item(href="member/john-chafee")
-            .avatar.big
-              .avatar-icon
-                img(src="assets/pic/avatar.jpg")
-              h3.avatar-title John Chafee
-              .avatar-subtitle
-                span.habbit Like design and coding
-                span.motto — We must be knowledgeable to everything because we are living in a competitive world.
-      .subtitle #{lang.member.common_members}
-      .row
-        .col-lg-9.list
-          a.list-item(href="member/john-chafee")
-            .avatar.big
-              .avatar-icon
-                img(src="assets/pic/avatar.jpg")
-              h3.avatar-title John Chafee
-              .avatar-subtitle
-                span.habbit Like design and coding
-                span.motto — We must be knowledgeable to everything because we are living in a competitive world.
-          a.list-item(href="member/john-chafee")
-            .avatar.big
-              .avatar-icon
-                img(src="assets/pic/avatar.jpg")
-              h3.avatar-title John Chafee
-              .avatar-subtitle
-                span.habbit Like design and coding
-                span.motto — We must be knowledgeable to everything because we are living in a competitive world.
+      - var groups = [lang.member.core_members, lang.member.common_members, lang.member.retired_members]
+      each group, index in groups
+        .subtitle #{group}
+        .row
+          .col-lg-9.list
+            each member in memberList
+              if member.role == index + 1
+                a.list-item(href="member/#{member.username_db}")
+                  .avatar.big
+                    .avatar-icon
+                      img(src="assets/pic/avatar.jpg")
+                    h3.avatar-title #{member.username}
+                    .avatar-subtitle
+                      span.habbit #{member.habit}
+                      span.motto — #{member.motto}

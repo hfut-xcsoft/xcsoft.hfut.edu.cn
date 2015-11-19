@@ -1,0 +1,31 @@
+extends ../layout
+block main
+  div#admin-main
+    form(method="post")
+      .form-group
+        span 项目名
+        input(name="name")
+      .form-group
+        span 英文名（作为URL，为带空格的单词或句子）
+        input(name="name_short")
+      .form-group
+        span 设计师
+        each member in memberList
+          input(type="checkbox", name="designer", value="#{member._id}")
+          span #{member.real_name}
+      .form-group
+        span 开发者
+        each member in memberList
+          input(type="checkbox", name="developer", value="#{member._id}")
+          span #{member.real_name}
+      .form-group
+        span 用到的技术（一行一个）
+        textarea(name="technology")
+      .form-group
+        span 描述
+        input(name="description")
+      .form-group
+        span 详细说明（请使用MarkDown语法）
+        textarea(name="detail[source]")
+      .form-group
+        input(type="submit")

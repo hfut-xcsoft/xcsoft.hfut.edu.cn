@@ -3,31 +3,12 @@ block main
   #main.articleDetail
     .header
       .container
-        h3 Evolving the Google identity
+        h3 #{article.title}
         .info
-          span Case Study
-          span.date May 16
+          span #{article.tag}
+          span.date #{dateFormat(article.time)}
         .author
-          a(href="member/john-chafee") By John Chafee
+          a(href="member/#{article.author.username_db}") By #{article.author.username}
     .container.container-small
       .article
-        h1 A test article 一篇测试文章
-        p Google is not a conventional company. Our mission—to take the world’s information and make it universally accessible and useful—continues to evolve. Last year we introduced Material Design to help designers and developers embrace an expanding, multi-device, multi-screen world. With those considerations in mind, we are excited to share a new brand identity that aims to make Google more accessible and useful to our users—wherever they may encounter it.
-        p Since its inception, the Google.com homepage has been strikingly simple: The quirky, multicolored logo sits above a single, approachable input field on a clean white canvas. But as technology moves forward, the canvas itself is changing, and the inputs and needs are becoming more diverse. New classes of devices and ways to interact and communicate have emerged with wearables, voice technology, and smart devices in the world around us. Users now engage with Google using a constellation of devices, and our brand should express the same simplicity and delight they expect from our homepage, while fully embracing the opportunities offered by each new device and surface.
-        p Here’s a glimpse at some of the design considerations that went into taking the best of what people know and love about Google, and evolving the brand to continue to be as dynamic and unconventional as we strive to be.
-        h2 Designed together
-        p Early this year, designers from all across the company, including Creative Lab and the Material Design team, convened in New York for an intense, week-long design sprint. We drafted a brief that identified four challenges we wanted to address:
-        ol
-          li A scalable mark that could convey the feeling of the full logotype in constrained spaces.
-          li The incorporation of dynamic, intelligent motion that responded to users at all stages of an interaction.
-          li A systematic approach to branding in our products to provide consistency in people’s daily encounters with Google.
-          li A refinement of what makes us Googley, combining the best of the brand our users know and love with thoughtful consideration for how their needs are changing.
-        p: img(src="assets/pic/g-sprint-1240.jpg")
-        p We started by distilling the essence of our brand down to its core—four colors on a clean white background—and built it back up. Stickies were stuck, pins were pushed, and beziers were animated. With the cutting room floor littered with hundreds of hours of design work, we set out with a few directions that excited us.
-        p We <a href="#">shared the thinking</a> with teams across the organization. Engineering, research, product, and marketing tested the ideas and evaluated their feasibility as we iterated on the design and rollout strategy. This collaborative process led to a system flexible enough to be used across our marketing materials and product work on any platform: three elemental states that make up a single logo.
-        h3 Have a test
-        ul
-          li A scalable mark that could convey the feeling of the full logotype in constrained spaces.
-          li The incorporation of dynamic, intelligent motion that responded to users at all stages of an interaction.
-          li A systematic approach to branding in our products to provide consistency in people’s daily encounters with Google.
-          li A refinement of what makes us Googley, combining the best of the brand our users know and love with thoughtful consideration for how their needs are changing.
+        | !{article.content.html}

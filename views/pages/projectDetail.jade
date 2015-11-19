@@ -3,8 +3,8 @@ block main
   #main.projectDetail
     .header
       .container
-        h3 Example Project
-        .info A example project for the design
+        h3 #{project.name}
+        .info #{project.description}
     .container
       .card
         .row
@@ -19,46 +19,40 @@ block main
                 .col-sm-6
                   .value
                     ul
-                      li
-                        a.paper(href="member/john-chafee")
-                          .paper-name John Chafee
-                          .paper-avatar
-                            img(src="assets/pic/avatar.jpg")
+                      each designer in project.designer
+                        li
+                          a.paper(href="member/#{designer.username_db}")
+                            .paper-name #{designer.username}
+                            .paper-avatar
+                              img(src="assets/pic/avatar.jpg")
               .row
                 .col-sm-6
                   .prop #{lang.project.developer}
                 .col-sm-6
                   .value
                     ul
-                      li
-                        a.paper(href="member/john-chafee")
-                          .paper-name John Chafee
-                          .paper-avatar.avatar-icon
-                            img(src="assets/pic/avatar.jpg")
-                      li
-                        a.paper(href="member/john-chafee")
-                          .paper-name John Chafee
-                          .paper-avatar.avatar-icon
-                            img(src="assets/pic/avatar.jpg")
+                      each developer in project.developer
+                        li
+                          a.paper(href="member/#{developer.username_db}")
+                            .paper-name #{developer.username}
+                            .paper-avatar.avatar-icon
+                              img(src="assets/pic/avatar.jpg")
               .row
                 .col-sm-6
                   .prop #{lang.project.technology}
                 .col-sm-6
                   .value
                     ul.style
-                      li Illustrator
-                      li Node.js
+                      each tech in project.technology.split('\r\n')
+                        li #{tech}
               .row
                 .col-sm-6
                   .prop #{lang.project.Completion_date}
                 .col-sm-6
-                  .value 2015-11-17
+                  .value #{dateFormat(project.finishTime)}
       .card
         .article
-          h1 Example Project
-          p A example project for the design
-          h2 Quick Start
-          p Open the browser, and come to this website
+          | !{project.detail.html}
 
 
 block jsCode
