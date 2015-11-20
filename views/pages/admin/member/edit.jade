@@ -12,7 +12,11 @@ block main
       .form-group
         span 真实姓名:
         input(name="real_name", value="#{member.real_name}")
-
+      .form-group
+        span 头像
+        img(src="#{member.avatar}", id="img_avatar")
+        input.hide(name="avatar", id="avatar", value='#{member.avatar}')
+        button(id="upload_avatar", type="button") 上传头像
       .form-group
         span 角色
         select(name="role")
@@ -30,9 +34,6 @@ block main
       .form-group
         span 邮箱:
         input(name="email", value="#{member.email}")
-      .form-group
-        span 头像:
-        input(name="avatar", value="#{member.avatar}")
       .form-group
         span 爱好:
         input(name="habit", value="#{member.habit}")
@@ -60,9 +61,32 @@ block main
         input(type="submit")
 
 block jsCode
+  script(src="assets/js/SimpleAjaxUploader.min.js")
   script.
     $(function () {
       $('select[name="role"]').val('#{member.role}');
       $('select[name="user_type"]').val('#{member.user_type}');
       $('select[name="status"]').val('#{member.status}');
+      var uploader = new ss.SimpleUpload({
+        button: 'upload_avatar', // file upload button
+        url: '/file_upload.php', // server side handler
+        name: 'imgFile', // upload parameter name
+        responseType: 'json',
+        allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],
+        encodeCustomHeaders: true,
+        maxSize: 256, // kilobytes
+        onComplete: function (filename, response) {
+          if (!response) {
+            alert(filename + 'upload failed');
+            return false;
+          }
+          if (!response.success) {
+            alert('上传失败! ' + response.msg);
+            return false;
+          }
+          $('#avatar').attr('value', response.url);
+          $('#img_avatar').attr('src', response.url);
+        }
+      });
+
     })

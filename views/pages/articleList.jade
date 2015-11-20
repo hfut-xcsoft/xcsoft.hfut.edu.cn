@@ -42,7 +42,7 @@ block main
               .list-item
                 div.avatar
                   .avatar-icon
-                    img(src="assets/pic/avatar.jpg")
+                    img(src="#{article.author.avatar}")
                   h3.avatar-title
                       a(href="article/#{article.title_short}") #{article.title}
                   .avatar-subtitle
@@ -50,7 +50,7 @@ block main
                     span.date #{dateFormat(article.time)}
                 .content
                   a.pic(href="article/#{article.title_short}")
-                    img(src="assets/pic/components-lists-6_large_mdpi.png")
+                    img(src="#{article.picture}")
                   .summary #{article.summary}
         .col-lg-3
           .card#ranklist

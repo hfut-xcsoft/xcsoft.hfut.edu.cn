@@ -10,7 +10,7 @@ block main
         .row
           .col-md-6
             #pic
-              img(src="assets/pic/wallpaper-kleiner-google-red-square-620.jpg")
+              img(src="#{project.picture}")
           .col-md-6
             .info
               .row
@@ -24,7 +24,7 @@ block main
                           a.paper(href="member/#{designer.username_db}")
                             .paper-name #{designer.username}
                             .paper-avatar
-                              img(src="assets/pic/avatar.jpg")
+                              img(src="#{designer.avatar}")
               .row
                 .col-sm-6
                   .prop #{lang.project.developer}
@@ -36,7 +36,7 @@ block main
                           a.paper(href="member/#{developer.username_db}")
                             .paper-name #{developer.username}
                             .paper-avatar.avatar-icon
-                              img(src="assets/pic/avatar.jpg")
+                              img(src="#{developer.avatar}")
               .row
                 .col-sm-6
                   .prop #{lang.project.technology}

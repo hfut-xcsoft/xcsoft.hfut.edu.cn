@@ -25,7 +25,38 @@ block main
         span 描述
         input(name="description")
       .form-group
-        span 详细说明（请使用MarkDown语法）
-        textarea(name="detail[source]")
+        span 图片
+        img(id="img_pic", src="")
+        input.hide(name="picture")
+        button(id="picture_upload") 上传图片
+      span 详细说明（请使用MarkDown语法）
+        button(id="mark_upload") 插入图片
+        textarea(name="detail[source]", id="markdown")
       .form-group
         input(type="submit")
+block jsCode
+  script(src="assets/js/SimpleAjaxUploader.min.js")
+  script(src="assets/js/admin.js")
+  script.
+    $(function () {
+      var uploader = new ss.SimpleUpload({
+        button: 'picture_upload',
+        url: '/file_upload.php',
+        name: 'imgFile',
+        responseType: 'json',
+        allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],
+        encodeCustomHeaders: true,
+        maxSize: 2048, // kilobytes
+        onComplete: function (filename, response) {
+          if (!response) {
+            alert(filename + 'upload failed');
+            return false;
+          }
+          if (!response.success) {
+            alert('上传失败! ' + response.msg);
+            return false;
+          }
+          $('input[name="picture"]').attr('value', response.url);
+          $('#img_pic').attr('src', response.url);
+        }
+      });

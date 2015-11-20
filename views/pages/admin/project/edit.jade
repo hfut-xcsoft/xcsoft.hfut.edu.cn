@@ -27,13 +27,21 @@ block main
         span 描述
         input(name="description", value="#{project.description}")
       .form-group
+        span 图片
+        img(id="img_pic", src="#{project.picture}")
+        input.hide(name="picture", value="#{project.picture}")
+        button(id="picture_upload") 上传图片
+      .form-group
         span 详细说明（请使用MarkDown语法）
-        textarea(name="detail[source]", value="")
+        button(id="mark_upload") 插入图片
+        textarea(name="detail[source]", id="markdown")
          | !{project.detail.source}
       .form-group
         input(type="submit")
 
 block jsCode
+  script(src="assets/js/SimpleAjaxUploader.min.js")
+  script(src="assets/js/admin.js")
   script.
     $(function () {
 

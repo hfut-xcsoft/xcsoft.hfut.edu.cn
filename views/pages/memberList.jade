@@ -16,8 +16,11 @@ block main
                 a.list-item(href="member/#{member.username_db}")
                   .avatar.big
                     .avatar-icon
-                      img(src="assets/pic/avatar.jpg")
+                      img(src="#{member.avatar}")
                     h3.avatar-title #{member.username}
                     .avatar-subtitle
                       span.habbit #{member.habit}
                       span.motto — #{member.motto}
+
+block jsCode
+  script(src="assets/js/SimpleAjaxUploader.min.js")

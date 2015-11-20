@@ -38,6 +38,7 @@ ArticleSchema.statics = {
   getAllArticles: function (callback) {
     return this
       .find({})
+      .populate('author', 'avatar')
       .exec(callback);
   },
 
