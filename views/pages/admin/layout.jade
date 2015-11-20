@@ -10,9 +10,12 @@ html
     script(src='assets/js/global.js')
   body
     ul
-      li: a(href='lib/admin/member') 成员
-      li: a(href="lib/admin/article") 文章
-      li: a(href='lib/admin/project') 项目
+      if user !== undefined
+        li: a(href='lib/admin/member') 成员
+        li: a(href="lib/admin/article") 文章
+        if user.user_type == 'admin'
+          li: a(href='lib/admin/project') 项目
+        li: a(href='lib/admin/logout') 注销
     block main
     block jsCode
     include ../../analytics.html

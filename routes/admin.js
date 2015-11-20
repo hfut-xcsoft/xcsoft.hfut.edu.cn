@@ -7,6 +7,8 @@ var utils = require('../middlewares/utils');
 var marked = require('marked');
 var step = require('step');
 var _ = require('underscore');
+var adminRequired = require('../middlewares/interceptor').adminRequired;
+var userRequired = require('../middlewares/interceptor').userRequired;
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -33,10 +35,10 @@ adminRouter.get('/member', function (req, res) {
 });
 
 adminRouter.route('/member/new')
-  .get(function (req, res) {
+  .get(adminRequired, function (req, res) {
     res.render('admin/member/new');
   })
-  .post(function (req, res) {
+  .post(adminRequired, function (req, res) {
 
     var memberForm = req.body;
     var _member = new Member({
@@ -55,14 +57,13 @@ adminRouter.route('/member/new')
     });
   });
 
-adminRouter.route('/member/:memberName')
+adminRouter.route('/member/:memberName', userRequired)
   .get(function (req, res) {
 
     var memberName = req.params.memberName;
     Member.getMemberByName(memberName, function (err, member) {
 
-      if (member === null) {res.render('admin/notFound')}
-
+      if (member === null) {return res.render('admin/notFound')}
       res.render('admin/member/edit', {
         member: member
       })
@@ -171,7 +172,7 @@ adminRouter.route('/article/:articleName')
 
 
 
-adminRouter.get('/project', function (req, res) {
+adminRouter.get('/project', adminRequired, function (req, res) {
   Project.getAllProjects(function (err, projectList) {
     if (projectList == null) return res.render('admin/notFound');
     res.render('admin/project/list', {
@@ -268,6 +269,11 @@ adminRouter.route('/project/:projectName')
       });
     })
   })
+
+adminRouter.get('/logout', function (req, res) {
+  delete req.session.user;
+  res.redirect(baseUrl + 'lib/login');
+})
 
 module.exports = adminRouter;
 

@@ -17,7 +17,7 @@ module.exports = function (req, res, app) {
         app.locals.moment(date).format('MMM YYYY'):
         app.locals.moment(date).format('YYYY年M月');
     }
-
-
   }
+
+  app.locals.user = req.session.user;
 }

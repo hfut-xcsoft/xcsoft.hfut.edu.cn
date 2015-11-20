@@ -1,7 +1,8 @@
 extends ../layout
 block main
   #admin-main
-    a(href="lib/admin/member/new") 添加成员
+    if user.user_type == 'admin'
+      a(href="lib/admin/member/new") 添加成员
     table
       thead
         th 用户名

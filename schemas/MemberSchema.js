@@ -64,7 +64,7 @@ MemberSchema.statics = {
 
   checkAccount: function (username, password, callback) {
     return this
-      .find({username_db: username}, {password: password})
+      .findOne({$and: [{username_db: username}, {password: password}]})
       .exec(callback);
   }
 }

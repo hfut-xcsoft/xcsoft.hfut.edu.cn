@@ -1,4 +1,7 @@
 extends ../layout
+
+- var isShow = function() {return }
+
 block main
   div#admin-main
     form(method="post")
@@ -17,17 +20,19 @@ block main
         img(src="#{member.avatar}", id="img_avatar")
         input.hide(name="avatar", id="avatar", value='#{member.avatar}')
         button(id="upload_avatar", type="button") 上传头像
-      .form-group
-        span 角色
-        select(name="role")
-          option(value="1") 核心成员
-          option(value="2") 普通成员
-          option(value="3") 退役成员
-      .form-group
-        span 用户类型
-        select(name="user_type")
-          option(value="common") 普通用户
-          option(value="admin") 网站管理员
+      if user.user_type == 'admin'
+        .form-group
+          span 角色
+          select(name="role")
+            option(value="1") 核心成员
+            option(value="2") 普通成员
+            option(value="3") 退役成员
+      if user.user_type == 'admin'
+        .form-group
+          span 用户类型
+          select(name="user_type")
+            option(value="common") 普通用户
+            option(value="admin") 网站管理员
       .form-group
         span 联系电话:
         input(name="phone", value="#{member.phone}")
@@ -52,11 +57,12 @@ block main
       .form-group
         span 博客网站URL:
         input(name="blog[url]", value="#{member.blog.url}")
-      .form-group
-        span 账户状态:
-        select(name="status", value="#{member.statue}")
-          option(value="1") 正常
-          option(value="0") 禁用
+      if user.user_type == 'admin'
+        .form-group
+          span 账户状态:
+          select(name="status", value="#{member.statue}")
+            option(value="1") 正常
+            option(value="0") 禁用
       .form-group
         input(type="submit")
 
