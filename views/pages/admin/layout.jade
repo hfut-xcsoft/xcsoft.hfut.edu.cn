@@ -9,6 +9,10 @@ html
     script(src='assets/js/jquery-1.11.2.min.js')
     script(src='assets/js/global.js')
   body
+    ul
+      li: a(href='lib/admin/member') 成员
+      li: a(href="lib/admin/article") 文章
+      li: a(href='lib/admin/project') 项目
     block main
     block jsCode
     include ../../analytics.html

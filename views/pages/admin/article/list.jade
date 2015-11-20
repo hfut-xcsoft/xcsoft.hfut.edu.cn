@@ -1,0 +1,13 @@
+extends ../layout
+block main
+  #admin-main
+    a(href="lib/admin/article/new") 添加文章
+    table
+      thead
+        th 文章标题
+        th 点击数
+      tbody
+        each article in articleList
+          tr
+            td: a(href="lib/admin/article/#{article.title_short}") #{article.title}
+            td #{article.click}

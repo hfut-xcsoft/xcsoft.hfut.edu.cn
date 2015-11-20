@@ -1,4 +1,7 @@
 var index = require('express').Router();
+var Member = require('../models/Member');
+var baseUrl = require('../configs/config').baseUrl;
+var utils = require('../middlewares/utils');
 
 index.get('/', function (req, res) {
   res.render('index');
@@ -14,5 +17,22 @@ index.get('/lang', function (req, res) {
   res.cookie('lang', setLang);
   res.redirect(req.headers.referer);
 });
+
+index.route('/lib/login')
+  .get(function (req, res) {
+    res.render('admin/login');
+  })
+  .post(function (req, res) {
+    var username = utils.changeToDBStr(req.body.username);
+    var password = req.body.password;
+    Member.checkAccount(username, password, function (err, result) {
+      if (result == null) return res.render('admin/login', {
+        error: '用户名或密码错误'
+      });
+
+      req.session.user = result;
+      res.redirect(baseUrl + 'lib/admin/index');
+    })
+  });
 
 module.exports = index;

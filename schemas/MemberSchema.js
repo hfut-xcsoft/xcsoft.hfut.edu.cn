@@ -60,6 +60,12 @@ MemberSchema.statics = {
     return this
       .find({role: role})
       .exec(callback);
+  },
+
+  checkAccount: function (username, password, callback) {
+    return this
+      .find({username_db: username}, {password: password})
+      .exec(callback);
   }
 }
 

@@ -1,0 +1,11 @@
+extends ../layout
+block main
+  #admin-main
+    a(href="lib/admin/project/new") 添加项目
+    table
+      thead
+        th 项目名
+      tbody
+        each project in projectList
+          tr
+            td: a(href="lib/admin/project/#{project.name_short}") #{project.name}

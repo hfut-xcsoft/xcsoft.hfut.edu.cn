@@ -7,7 +7,7 @@ block main
         span 项目名
         input(name="name", value="#{project.name}")
       .form-group
-        span 英文名（作为URL，为带空格的单词或句子）
+        span 英文名（作为URL，可以带上空格）
         input(name="name_short", value="#{project.name_short}")
       .form-group
         span 设计师
@@ -30,7 +30,7 @@ block main
         span 图片
         img(id="img_pic", src="#{project.picture}")
         input.hide(name="picture", value="#{project.picture}")
-        button(id="picture_upload") 上传图片
+        button(id="picture_upload", type="button") 上传图片
       .form-group
         span 详细说明（请使用MarkDown语法）
         button(id="mark_upload") 插入图片
@@ -57,5 +57,29 @@ block jsCode
         if (developerId.indexOf($(this).val()) >= 0) {
           $(this).attr('checked', 'checked')
         }
+      })
+
+      $(function () {
+        var uploader = new ss.SimpleUpload({
+          button: 'picture_upload',
+          url: '/file_upload.php',
+          name: 'imgFile',
+          responseType: 'json',
+          allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],
+          encodeCustomHeaders: true,
+          maxSize: 2048, // kilobytes
+          onComplete: function (filename, response) {
+            if (!response) {
+              alert(filename + 'upload failed');
+              return false;
+            }
+            if (!response.success) {
+              alert('上传失败! ' + response.msg);
+              return false;
+            }
+            $('input[name="picture"]').attr('value', response.url);
+            $('#img_pic').attr('src', response.url);
+          }
+        });
       })
     })

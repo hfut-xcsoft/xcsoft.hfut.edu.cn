@@ -38,7 +38,7 @@ ProjectSchema.statics = {
       .exec(callback)
   },
 
-  getAllProject(callback) {
+  getAllProjects(callback) {
     return this
       .find({})
       .sort({finishTime: -1})

@@ -3,7 +3,7 @@ var Project = require('../models/Project');
 
 projectRoute.get('/', function (req, res) {
 
-  Project.getAllProject(function (err, projectList) {
+  Project.getAllProjects(function (err, projectList) {
     if (err) {
       console.log(err);
       return;

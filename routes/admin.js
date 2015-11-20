@@ -19,6 +19,10 @@ marked.setOptions({
   smartypants: false
 });
 
+adminRouter.get('/index', function (req, res) {
+  res.render('admin/index');
+});
+
 adminRouter.get('/member', function (req, res) {
 
   Member.getAllMembers(function (err, memberList) {
@@ -82,8 +86,11 @@ adminRouter.route('/member/:memberName')
 
 
 adminRouter.get('/article', function (req, res) {
-
-  res.render('admin/article/list');
+  Article.getAllArticles(function (err, articleList) {
+    res.render('admin/article/list', {
+      articleList: articleList
+    })
+  });
 });
 
 adminRouter.route('/article/new')
@@ -165,8 +172,12 @@ adminRouter.route('/article/:articleName')
 
 
 adminRouter.get('/project', function (req, res) {
-
-  res.render('admin/project/list');
+  Project.getAllProjects(function (err, projectList) {
+    if (projectList == null) return res.render('admin/notFound');
+    res.render('admin/project/list', {
+      projectList: projectList
+    })
+  });
 });
 
 adminRouter.route('/project/new')

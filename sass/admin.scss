@@ -1,8 +1,27 @@
 #admin-main {
   margin: 32px auto;
-  max-width: 480px;
+  max-width: 760px;
 
   .hide {
     display: none;
   }
+
+  .form-group {
+    > span:first-child {
+      display: block;
+    }
+
+    > img {
+      max-width: 100%;
+    }
+
+    > textarea#markdown {
+      width: 100%;
+      min-height: 400px;
+    }
+
+  }
+
+
+
 }

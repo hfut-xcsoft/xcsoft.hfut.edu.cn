@@ -34,7 +34,7 @@ function insertAtCaret(areaId,text) {
 
 var uploaderInMark = new ss.SimpleUpload({
   button: 'mark_upload',
-  url: '/file_upload.php',
+  url: '/file_upload.php?app=lib',
   name: 'imgFile',
   responseType: 'json',
   allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],
