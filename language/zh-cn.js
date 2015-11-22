@@ -13,24 +13,24 @@ module.exports = {
   },
 
   article: {
-    header_text: 'Give you the most valuable knowledge and technology',
-    rank_list: 'Rank List'
+    header_text: '教你最有用的知识和技术',
+    rank_list: '排行榜'
   },
 
   project: {
-    header_text: 'Everything we make is the best, with all our hearts',
+    header_text: '我们全力以赴，用心做到最好',
     finished_project: '项目成果',
 
-    designer: 'Designer',
-    developer: 'Developer',
-    technology: 'Technology',
-    Completion_date: 'Completion Date'
+    designer: '设计师',
+    developer: '开发者',
+    technology: '运用的技术',
+    Completion_date: '完成时间'
   },
 
   member: {
-    header_text: 'We work and develop together, enjoy ourselves',
-    core_members: 'Core Members',
-    common_members: 'Common Members',
-    retired_members: 'Retired Members'
+    header_text: '我们一起学习，享受开发的乐趣',
+    core_members: '核心成员',
+    common_members: '普通成员',
+    retired_members: '退役成员'
   }
 };

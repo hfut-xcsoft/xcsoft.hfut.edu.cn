@@ -17,7 +17,7 @@ interceptor.adminRequired = function (req, res, next) {
 
 interceptor.userRequired = function (req, res, next) {
   if (req.session.user.user_type != 'admin'
-    && member._id != req.session.user._id) {
+    && req.params.memberName != req.session.user.username_db) {
     return res.render('admin/deny');
   }
   next();

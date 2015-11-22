@@ -57,9 +57,8 @@ adminRouter.route('/member/new')
     });
   });
 
-adminRouter.route('/member/:memberName', userRequired)
-  .get(function (req, res) {
-
+adminRouter.route('/member/:memberName')
+  .get(userRequired, function (req, res) {
     var memberName = req.params.memberName;
     Member.getMemberByName(memberName, function (err, member) {
 
@@ -70,7 +69,7 @@ adminRouter.route('/member/:memberName', userRequired)
     });
 
   })
-  .post(function (req, res) {
+  .post(userRequired, function (req, res) {
     var memberForm = req.body;
     Member.findById(memberForm._id, function (err, member) {
       if (err) {console.log(err); return;}
