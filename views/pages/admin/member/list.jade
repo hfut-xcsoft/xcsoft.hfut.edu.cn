@@ -7,8 +7,12 @@ block main
       thead
         th 用户名
         th 真实姓名
+        if user.user_type == 'admin'
+          th 操作
       tbody
         each member in memberList
           tr
             td: a(href="/lib/admin/member/#{member.username_db}") #{member.username}
             td #{member.real_name}
+            if user.user_type == 'admin'
+              td: a(href="/lib/admin/member/remove/#{member.username_db}") #{member.status == 1 ? '删除' : '恢复'}

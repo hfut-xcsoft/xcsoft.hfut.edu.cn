@@ -1,10 +1,12 @@
 extends ../layout
-
+block title
+  title #{lang.title.project_list} - XC · SOFT
 block main
-  #main
+  #main.projectList
     .header
       .container
-        img(src="/assets/pic/project.svg")
+        svg
+          image(xlink:href="/assets/pic/project.svg", src="/assets/pic/project.png")
         p #{lang.project.header_text}
     .container
       h2.part-title #{lang.project.finished_project}

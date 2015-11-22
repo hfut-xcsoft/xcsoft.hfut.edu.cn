@@ -13,12 +13,12 @@ module.exports = {
   },
 
   article: {
-    header_text: 'Give you the most valuable knowledge and technology',
+    header_text: 'Let\'s study the most valuable knowledge and technology',
     rank_list: 'Rank List'
   },
 
   project: {
-    header_text: 'Everything we make is the best, with all our hearts',
+    header_text: 'Everything we made is the best, with all our hearts',
     finishedProject: 'Finished Project',
 
     designer: 'Designer',
@@ -32,5 +32,11 @@ module.exports = {
     core_members: 'Core Members',
     common_members: 'Common Members',
     retired_members: 'Retired Members'
+  },
+
+  title: {
+    article_list: 'Article List',
+    project_list: 'Project List',
+    member_list: 'Member List'
   }
 };

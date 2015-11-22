@@ -13,7 +13,7 @@ module.exports = {
   },
 
   article: {
-    header_text: '教你最有用的知识和技术',
+    header_text: '提供最有用的技术知识，让我们共同学习',
     rank_list: '排行榜'
   },
 
@@ -32,5 +32,11 @@ module.exports = {
     core_members: '核心成员',
     common_members: '普通成员',
     retired_members: '退役成员'
+  },
+
+  title: {
+    article_list: '文章列表',
+    project_list: '项目列表',
+    member_list: '成员列表'
   }
 };

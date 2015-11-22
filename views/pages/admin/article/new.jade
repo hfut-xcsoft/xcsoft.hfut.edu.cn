@@ -27,16 +27,26 @@ block main
         span 文章内容（请使用MarkDown语法）
         button(id="mark_upload") 插入图片
         textarea(name="content[source]", id="markdown")
+        input(type="button", value="预览", id="preview")
       .form-group
         input(type="submit")
+      .article(style="background-color: #fff; width: 800px")
 block jsCode
   script(src="/assets/js/SimpleAjaxUploader.min.js")
   script(src="/assets/js/admin.js")
   script.
     $(function () {
+
+      $('#preview').click(function () {
+        var content = $('textarea[name="content[source]"]').val();
+        $.post('/lib/admin/article/preview', {content: content},function (data) {
+          $('.article').html(data);
+        })
+      })
+
       var uploader = new ss.SimpleUpload({
         button: 'picture_upload',
-        url: '/file_upload.php',
+        url: '/file_upload.php?app=lib',
         name: 'imgFile',
         responseType: 'json',
         allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],

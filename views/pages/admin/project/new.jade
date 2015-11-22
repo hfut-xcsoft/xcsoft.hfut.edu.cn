@@ -41,7 +41,7 @@ block jsCode
     $(function () {
       var uploader = new ss.SimpleUpload({
         button: 'picture_upload',
-        url: '/file_upload.php',
+        url: '/file_upload.php?app=lib',
         name: 'imgFile',
         responseType: 'json',
         allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],

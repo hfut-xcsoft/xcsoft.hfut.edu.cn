@@ -1,11 +1,13 @@
 extends ../layout
-
+block title
+  title #{lang.title.article_list} - XC · SOFT
 block main
   #main.articlelist
     .header
       .container
         #article-logo
-          img(src="/assets/pic/article.svg")
+          svg
+            image(xlink:href="/assets/pic/article.svg", src="/assets/pic/article.png")
           span ARTICLE
         p #{lang.article.header_text}
     .container

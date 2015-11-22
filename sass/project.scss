@@ -1,7 +1,13 @@
 @import 'colors.scss';
 
-.header > .container > img {
-  max-width: 450px;
+.projectList {
+  .header > .container {
+    > svg,
+    > img {
+      max-width: 550px;
+      max-height: 150px;
+    }
+  }
 }
 
 .part-title {

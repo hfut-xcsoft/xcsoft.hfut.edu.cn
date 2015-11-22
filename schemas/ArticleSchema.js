@@ -3,28 +3,19 @@ var Schema = require('mongoose').Schema;
 var ObjectId = Schema.Types.ObjectId;
 
 var ArticleSchema = new Schema({
-  title: String,
-  title_short: String,
-  summary: String,
+  title:        {type: String, default: ''},
+  title_short:  {type: String, default: ''},
+  summary:      {type: String, default: ''},
   content: {
-    source: String,
-    html: String
+    source:     {type: String, default: ''},
+    html:       {type: String, default: ''}
   },
-  author: {
-    type: ObjectId,
-    ref: 'Member'
-  },
-  time: {
-    type: Date,
-    default: Date.now
-  },
-  tag: String,
-  picture: String,
-  status: Number,
-  click: {
-    type: Number,
-    default: 0
-  }
+  author:       {type: ObjectId, ref: 'Member'},
+  time:         {type: Date,   default: Date.now},
+  tag:          {type: String, default: ''},
+  picture:      {type: String, default: ''},
+  status:       {type: Number, default: 1},
+  click:        {type: Number, default: 0}
 });
 
 ArticleSchema.statics = {

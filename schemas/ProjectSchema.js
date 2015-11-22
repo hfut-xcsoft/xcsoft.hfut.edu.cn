@@ -4,28 +4,19 @@ var ObjectId = Schema.Types.ObjectId;
 
 var ProjectSchema = new Schema({
 
-  name: String,
-  name_short: String,
-  description: String,
+  name:         {type: String,    default: ''},
+  name_short:   {type: String,    default: ''},
+  description:  {type: String,    default: ''},
   detail: {
-    source: String,
-    html: String
+    source:     {type: String,    default: ''},
+    html:       {type: String,    default: ''}
   },
-  designer: [{
-    type: ObjectId,
-    ref: 'Member'
-  }],
-  developer: [{
-    type: ObjectId,
-    ref: 'Member'
-  }],
-  technology: String,
-  finishTime: {
-    type: Date,
-    default: Date.now
-  },
-  picture: String,
-  status: Number
+  designer:    [{type: ObjectId,  ref: 'Member'}],
+  developer:   [{type: ObjectId,  ref: 'Member'}],
+  technology:   {type: String,    default: ''},
+  finishTime:   {type: Date,      default: Date.now},
+  picture:      {type: String,    default: ''},
+  status:       {type: Number,    default: 1}
 });
 
 ProjectSchema.statics = {

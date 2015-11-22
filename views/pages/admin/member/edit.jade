@@ -75,7 +75,7 @@ block jsCode
       $('select[name="status"]').val('#{member.status}');
       var uploader = new ss.SimpleUpload({
         button: 'upload_avatar', // file upload button
-        url: '/file_upload.php', // server side handler
+        url: '/file_upload.php?app=lib', // server side handler
         name: 'imgFile', // upload parameter name
         responseType: 'json',
         allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],
