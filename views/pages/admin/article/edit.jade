@@ -36,8 +36,8 @@ block main
     .article(style="background-color: #fff; width: 800px")
 
 block jsCode
-  script(src="assets/js/SimpleAjaxUploader.min.js")
-  script(src="assets/js/admin.js")
+  script(src="/assets/js/SimpleAjaxUploader.min.js")
+  script(src="/assets/js/admin.js")
   script.
     $(function () {
       $('select[name="author"]').val('#{article.author._id}');

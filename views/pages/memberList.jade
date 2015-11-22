@@ -3,7 +3,7 @@ block main
   #main.memberlist
     .header
       .container
-        img(src="assets/pic/member.svg")
+        img(src="/assets/pic/member.svg")
         p #{lang.member.header_text}
     .container
       - var groups = [lang.member.core_members, lang.member.common_members, lang.member.retired_members]
@@ -13,7 +13,7 @@ block main
           .col-lg-9.list
             each member in memberList
               if member.role == index + 1
-                a.list-item(href="member/#{member.username_db}")
+                a.list-item(href="/member/#{member.username_db}")
                   .avatar.big
                     .avatar-icon
                       img(src="#{member.avatar}")
@@ -23,4 +23,4 @@ block main
                       span.motto — #{member.motto}
 
 block jsCode
-  script(src="assets/js/SimpleAjaxUploader.min.js")
+  script(src="/assets/js/SimpleAjaxUploader.min.js")

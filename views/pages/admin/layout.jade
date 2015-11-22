@@ -1,21 +1,20 @@
 doctype html
 html
   head
-    base(href=baseUrl)
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1")
-    link(href='assets/css/style.css', rel='stylesheet')
-    script(src='assets/js/jquery-1.11.2.min.js')
-    script(src='assets/js/global.js')
+    link(href='/assets/css/style.css', rel='stylesheet')
+    script(src='/assets/js/jquery-1.11.2.min.js')
+    script(src='/assets/js/global.js')
   body
     ul
       if user !== undefined
-        li: a(href='lib/admin/member') 成员
-        li: a(href="lib/admin/article") 文章
+        li: a(href='/lib/admin/member') 成员
+        li: a(href="/lib/admin/article") 文章
         if user.user_type == 'admin'
-          li: a(href='lib/admin/project') 项目
-        li: a(href='lib/admin/logout') 注销
+          li: a(href='/lib/admin/project') 项目
+        li: a(href='/lib/admin/logout') 注销
     block main
     block jsCode
     include ../../analytics.html

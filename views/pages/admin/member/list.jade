@@ -2,7 +2,7 @@ extends ../layout
 block main
   #admin-main
     if user.user_type == 'admin'
-      a(href="lib/admin/member/new") 添加成员
+      a(href="/lib/admin/member/new") 添加成员
     table
       thead
         th 用户名
@@ -10,5 +10,5 @@ block main
       tbody
         each member in memberList
           tr
-            td: a(href="lib/admin/member/#{member.username_db}") #{member.username}
+            td: a(href="/lib/admin/member/#{member.username_db}") #{member.username}
             td #{member.real_name}

@@ -21,7 +21,7 @@ block main
                     ul
                       each designer in project.designer
                         li
-                          a.paper(href="member/#{designer.username_db}")
+                          a.paper(href="/member/#{designer.username_db}")
                             .paper-name #{designer.username}
                             .paper-avatar
                               img(src="#{designer.avatar}")
@@ -33,7 +33,7 @@ block main
                     ul
                       each developer in project.developer
                         li
-                          a.paper(href="member/#{developer.username_db}")
+                          a.paper(href="/member/#{developer.username_db}")
                             .paper-name #{developer.username}
                             .paper-avatar.avatar-icon
                               img(src="#{developer.avatar}")

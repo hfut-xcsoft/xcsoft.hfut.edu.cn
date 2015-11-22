@@ -4,24 +4,14 @@ block main
   #main
     .header
       .container
-        img(src="assets/pic/project.svg")
+        img(src="/assets/pic/project.svg")
         p #{lang.project.header_text}
     .container
       h2.part-title #{lang.project.finished_project}
       .row
-        .col-lg-4.col-md-6
-          .card
-            .card-pic
-              div: img(src='assets/pic/wallpaper-kleiner-google-red-square-620.jpg')
-              h3 Example
-            .card-body
-              .description A example for a project show in this card.
-              .card-bottom
-                span May 16
-                //span.right ❤ 12
         each project in projectList
           .col-lg-4.col-md-6
-            a.card(href="project/#{project.name_short}")
+            a.card(href="/project/#{project.name_short}")
               .card-pic
                 div: img(src=project.picture)
                 h3 #{project.name}

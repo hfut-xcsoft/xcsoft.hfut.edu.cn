@@ -26,7 +26,7 @@ block main
         input(name="description")
       .form-group
         span 图片
-        img(id="img_pic", src="")
+        img(id="img_pic", src="/")
         input.hide(name="picture")
         button(id="picture_upload") 上传图片
       span 详细说明（请使用MarkDown语法）
@@ -35,8 +35,8 @@ block main
       .form-group
         input(type="submit")
 block jsCode
-  script(src="assets/js/SimpleAjaxUploader.min.js")
-  script(src="assets/js/admin.js")
+  script(src="/assets/js/SimpleAjaxUploader.min.js")
+  script(src="/assets/js/admin.js")
   script.
     $(function () {
       var uploader = new ss.SimpleUpload({

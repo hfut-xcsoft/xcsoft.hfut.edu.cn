@@ -1,7 +1,7 @@
 extends ../layout
 block main
   #admin-main
-    a(href="lib/admin/article/new") 添加文章
+    a(href="/lib/admin/article/new") 添加文章
     table
       thead
         th 文章标题
@@ -9,5 +9,5 @@ block main
       tbody
         each article in articleList
           tr
-            td: a(href="lib/admin/article/#{article.title_short}") #{article.title}
+            td: a(href="/lib/admin/article/#{article.title_short}") #{article.title}
             td #{article.click}
