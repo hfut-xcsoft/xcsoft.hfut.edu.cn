@@ -5,8 +5,9 @@ block main
   #main.memberlist
     .header
       .container
-        svg
+        //svg
           image(xlink:href="/assets/pic/member.svg", src="/assets/pic/member.png")
+        img(src="/assets/pic/member.png")
         p #{lang.member.header_text}
     .container
       - var groups = [lang.member.core_members, lang.member.common_members, lang.member.retired_members]

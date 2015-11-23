@@ -35,4 +35,8 @@ index.route('/lib/login')
     })
   });
 
+index.get('/lib/contact-us', function (req, res) {
+  res.render('contactUs');
+});
+
 module.exports = index;

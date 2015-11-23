@@ -58,10 +58,25 @@
         padding-left: 16px;
         display: block;
         line-height: 48px;
+
+        &.active {
+          color: #a467a7;
+          background-color: #eeeeee;
+        }
       }
     }
+  }
 
+  .bottom {
+    position: absolute;
+    bottom: 24px;
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
 
+    > a {
+      margin: 0 20px;
+    }
   }
 
   &.show {
@@ -275,8 +290,8 @@ a.card {
   }
 
   h2 {
-    font-weight: 300;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 22px;
     margin-top: 24px;
   }
 
@@ -288,6 +303,7 @@ a.card {
 
   p {
     margin: 0;
+    font-size: 17px;
     padding-bottom: 24px;
 
     img {
