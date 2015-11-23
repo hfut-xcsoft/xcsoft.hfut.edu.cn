@@ -32,6 +32,7 @@ app.use(session(Config.session));
 app.listen(Config.port);
 app.locals.moment = require('moment');
 app.locals.baseUrl= Config.baseUrl;
+app.locals.config = Config;
 
 /**
  * Handle request by router or socket.io

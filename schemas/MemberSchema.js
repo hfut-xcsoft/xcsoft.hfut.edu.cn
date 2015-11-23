@@ -24,23 +24,13 @@ var MemberSchema = new Schema({
     name:         {type: String,  default: ''},
     url:          {type: String,  default: ''}
   },
+  sort_id:        {type: Number, default: 1},
   status:         {type: Number, default: 1}
 });
 
 MemberSchema.pre('save', function (next) {
-  var username_db = utils.changeToDBStr(this.username);
-  if (this.isNew) {
-    var self = this;
-    mongoose.models["Member"].findOne({username_db: username_db}, function (err, member) {
-      if (member != null) {
-        next(new Error('Existed'))
-      }
-      self.username_db = username_db;
-      next();
-    })
-  } else {
-    next();
-  }
+  this.username_db = utils.changeToDBStr(this.username);
+  next();
 });
 
 MemberSchema.statics = {
@@ -53,6 +43,7 @@ MemberSchema.statics = {
   getAllMembers: function (callback) {
     return this
       .find({})
+      .sort({sort_id: -1})
       .exec(callback);
   },
 

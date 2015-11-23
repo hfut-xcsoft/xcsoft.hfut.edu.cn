@@ -4,6 +4,8 @@
  */
 var Config = {
 
+  assets_version: '0.9.9',
+
   baseUrl: '/',
 
   // The port of app.js listening

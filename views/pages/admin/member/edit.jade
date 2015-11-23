@@ -33,6 +33,9 @@ block main
           select(name="user_type")
             option(value="common") 普通用户
             option(value="admin") 网站管理员
+        .form-group
+          span 排序id
+          input(name="sort_id", value="#{member.sort_id}")
       .form-group
         span 联系电话:
         input(name="phone", value="#{member.phone}")

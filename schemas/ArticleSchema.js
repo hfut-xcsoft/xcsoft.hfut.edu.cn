@@ -30,6 +30,7 @@ ArticleSchema.statics = {
     return this
       .find({})
       .populate('author', 'avatar')
+      .sort({time: -1})
       .exec(callback);
   },
 
