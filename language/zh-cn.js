@@ -38,5 +38,14 @@ module.exports = {
     article_list: '文章列表',
     project_list: '项目列表',
     member_list: '成员列表'
+  },
+
+  contact_us: {
+    content:  '<h1>联系我们</h1>' +
+              '<p>身为工大学子的你，如果对软件开发或是产品设计感兴趣，欢迎向我们投递简历</p>' +
+              '<h3>邮箱</h3>' +
+              '<p>hfut_xcsoft@163.com</p>' +
+              '<h3>地点</h3>' +
+              '<p>综合实验楼一 403</p>'
   }
 };

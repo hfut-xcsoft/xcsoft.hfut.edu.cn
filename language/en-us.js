@@ -38,5 +38,14 @@ module.exports = {
     article_list: 'Article List',
     project_list: 'Project List',
     member_list: 'Member List'
+  },
+
+  contact_us: {
+    content:  '<h1>Contact Us</h1>' +
+              '<p>If you are interested in software developing or production designing, welcome to send email to us</p>' +
+              '<h3>E-mail</h3>' +
+              '<p>hfut_xcsoft@163.com</p>' +
+              '<h3>Address</h3>' +
+              '<p>综合实验楼一 403</p>'
   }
 };

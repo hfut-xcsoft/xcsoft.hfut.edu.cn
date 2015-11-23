@@ -1,12 +1,16 @@
 .defaultPage {
   #bg {
-    background-color: $purple-main;
-    height: 100px;
+    @include minSize(md) {
+      background-color: $purple-main;
+      height: 100px;
+    }
   }
 
   #pg {
     padding: 8px;
-    margin-top: -50px;
     background-color: #ffffff;
+    @include minSize(md) {
+      margin-top: -50px;
+    }
   }
 }
