@@ -10,12 +10,11 @@ html
     | <script src="/assets/js/respond.min.js"></script>
     | <script src="/assets/js/html5shiv.min.js"></script>
     | <![endif]-->
-    script(src='/assets/js/jquery-1.11.2.min.js')
+    script(src=cdn.jquery)
     script(src='/assets/js/global.js?v=' + config.assets_version)
   body
+    include analytics.html
     include components/navigation
     block main
     include components/footer
     block jsCode
-    include analytics.html
-

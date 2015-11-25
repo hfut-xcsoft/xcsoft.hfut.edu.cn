@@ -8,7 +8,7 @@ lib.get('/lang', function (req, res) {
     setLang = 'zh-cn';
   }
   res.cookie('lang', setLang);
-  res.redirect(req.headers.referer);
+  res.redirect(req.headers.referer || '../');
 });
 
 lib.get('/login', function (req, res) {
