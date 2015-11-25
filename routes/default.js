@@ -38,7 +38,9 @@ index.route('/lib/login')
   });
 
 index.get('/lib/contact-us', function (req, res) {
-  res.render('contactUs');
+  res.render('contactUs', {
+    description: '身为工大学子的你，如果对软件开发或是产品设计有兴趣，欢迎向我们投递简历。'
+  });
 });
 
 module.exports = index;

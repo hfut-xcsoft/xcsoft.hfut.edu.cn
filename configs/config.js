@@ -16,7 +16,7 @@ var Config = {
     }
   },
 
-  codeCompress: false,
+  noCompress: true,
 
   baseUrl: '/',
 

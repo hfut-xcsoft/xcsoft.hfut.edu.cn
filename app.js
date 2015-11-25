@@ -33,7 +33,7 @@ app.listen(Config.port);
 app.locals.moment = require('moment');
 app.locals.baseUrl= Config.baseUrl;
 app.locals.config = Config;
-app.locals.pretty = Config.codeCompress;
+app.locals.pretty = Config.noCompress;
 
 /**
  * Handle request by router or socket.io
