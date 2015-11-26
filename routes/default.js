@@ -1,5 +1,6 @@
 var index = require('express').Router();
 var Member = require('../models/Member');
+var sitemap = require('../middlewares/sitemap');
 var baseUrl = require('../configs/config').baseUrl;
 var utils = require('../middlewares/utils');
 
@@ -40,6 +41,14 @@ index.route('/lib/login')
 index.get('/lib/contact-us', function (req, res) {
   res.render('contactUs', {
     description: '身为工大学子的你，如果对软件开发或是产品设计有兴趣，欢迎向我们投递简历。'
+  });
+});
+
+index.get('/lib/sitemap.xml', function (req, res) {
+  sitemap.createXml(function (xml) {
+    res.contentType('text/xml');
+    res.send(xml);
+    res.end();
   });
 });
 
