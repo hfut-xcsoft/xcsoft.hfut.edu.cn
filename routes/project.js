@@ -31,7 +31,7 @@ projectRoute.get('/:projectName', function (req, res) {
     }
 
     res.render('projectDetail', {
-      description: '项目名: ' + project.name + ' 介绍: ' + project.description.html.substr(150).replace(/(<[^>]+?>|\s+)/g, ' '),
+      description: '项目名: ' + project.name + ' 介绍: ' + project.detail.html.substr(150).replace(/(<[^>]+?>|\s+)/g, ' '),
       keywords: [project.name],
       project: project,
       tab: 1
