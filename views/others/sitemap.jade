@@ -1,0 +1,31 @@
+doctype xml
+- var host = 'https://xcsoft.hfut.edu.cn'
+urlset
+
+  //- Homepage
+  url
+    loc #{host}
+    changefreq daily
+    priority 1.0
+
+  //- Main page
+  - var mainPage = ['article', 'project', 'member']
+  each page in mainPage
+    url
+      loc #{host}/#{page}
+      changefreq daily
+      priority 0.9
+
+  //- Article pages
+  each article in articleList
+    url
+      loc #{host}/article/#{article.title_short}
+      changefreq weekly
+      priority 0.8
+
+  //- project pages
+  each project in projectList
+    url
+      loc #{host}/project/#{project.name_short}
+      changefreq weekly
+      priority 0.6

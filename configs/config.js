@@ -4,6 +4,20 @@
  */
 var Config = {
 
+  assets_version: '0.9.9',
+
+  cdn: {
+    development: {
+      jquery: '/assets/js/jquery-1.11.2.min.js'
+    },
+
+    production: {
+      jquery: '//cdn.bootcss.com/jquery/1.11.3/jquery.min.js'
+    }
+  },
+
+  noCompress: true,
+
   baseUrl: '/',
 
   // The port of app.js listening

@@ -4,18 +4,20 @@ html
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0")
+    meta(name="keywords", content=(keywords || ['创新']).join(',') + ',XCSOFT,hfut,软件工程,实验室,合工大,宣城')
+    if description
+      meta(name="description", content=description)
     block title
-    link(href='/assets/css/style.css', rel='stylesheet')
+    link(href='/assets/css/style.css?v=' + config.assets_version, rel='stylesheet')
     | <!--[if lt IE 9]>
     | <script src="/assets/js/respond.min.js"></script>
     | <script src="/assets/js/html5shiv.min.js"></script>
     | <![endif]-->
-    script(src='/assets/js/jquery-1.11.2.min.js')
-    script(src='/assets/js/global.js')
+    script(src=cdn.jquery)
+    script(src='/assets/js/global.js?v=' + config.assets_version)
   body
+    include analytics.html
     include components/navigation
     block main
     include components/footer
     block jsCode
-    include analytics.html
-

@@ -19,11 +19,11 @@ module.exports = {
 
   project: {
     header_text: 'Everything we made is the best, with all our hearts',
-    finishedProject: 'Finished Project',
+    finished_project: 'Finished Projects',
 
-    designer: 'Designer',
-    developer: 'Developer',
-    technology: 'Technology',
+    designer: 'Designers',
+    developer: 'Developers',
+    technology: 'Technologies',
     Completion_date: 'Completion Date'
   },
 

@@ -6,9 +6,9 @@ gulp.task('default', ['sass']);
 
 gulp.task('sass', function () {
   gulp.src('./sass/style.scss')
-    .pipe(sourcemaps.init())
+    //.pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'expanded'}))
-    .pipe(sourcemaps.write())
+    //.pipe(sourcemaps.write())
     .pipe(gulp.dest('./assets/css'));
 });
 

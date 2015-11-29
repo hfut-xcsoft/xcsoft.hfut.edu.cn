@@ -32,6 +32,8 @@ app.use(session(Config.session));
 app.listen(Config.port);
 app.locals.moment = require('moment');
 app.locals.baseUrl= Config.baseUrl;
+app.locals.config = Config;
+app.locals.pretty = Config.noCompress;
 
 /**
  * Handle request by router or socket.io
@@ -48,7 +50,6 @@ var env = process.env.NODE_ENV || 'development';
 if ('development' == env) {
   app.set('showStackError', true);
   app.use(logger(':method :url :status'));
-  app.locals.pretty = true;
   mongoose.set('debug', true);
 }
 console.log('APP started on  port 3000');

@@ -9,7 +9,14 @@ projectRoute.get('/', function (req, res) {
       return;
     }
 
+    var titleList = [];
+    for (var i in projectList) {
+      titleList.push(projectList[i].name);
+    }
+
     res.render('projectList', {
+      description: '合肥工业大学(宣城校区)软件工程创新实验室, 项目成果: ' + titleList.join(','),
+      keywords: ['项目', 'project'],
       tab: 1,
       projectList: projectList
     });
@@ -24,6 +31,8 @@ projectRoute.get('/:projectName', function (req, res) {
     }
 
     res.render('projectDetail', {
+      description: '项目名: ' + project.name + ' 介绍: ' + project.detail.html.substr(150).replace(/(<[^>]+?>|\s+)/g, ' '),
+      keywords: [project.name],
       project: project,
       tab: 1
     })
