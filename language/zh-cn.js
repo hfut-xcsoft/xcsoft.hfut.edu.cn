@@ -14,7 +14,9 @@ module.exports = {
 
   article: {
     header_text: '提供最有用的技术知识，让我们共同学习',
-    rank_list: '排行榜'
+    rank_list: '排行榜',
+    by: '编辑：',
+    from: '来源：'
   },
 
   project: {

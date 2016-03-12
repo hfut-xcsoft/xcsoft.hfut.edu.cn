@@ -147,8 +147,16 @@
 
   .header {
 
-    .info > .date {
-      margin-left: 24px;
+    .container {
+      max-width: 1168px;
+
+      span {
+        margin-left: 24px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
     }
 
     .author {

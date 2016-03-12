@@ -942,8 +942,16 @@ a.card:hover {
   background-color: #ffffff;
 }
 
-.articleDetail .header .info > .date {
+.articleDetail .header .container {
+  max-width: 1168px;
+}
+
+.articleDetail .header .container span {
   margin-left: 24px;
+}
+
+.articleDetail .header .container span:first-child {
+  margin-left: 0;
 }
 
 .articleDetail .header .author {

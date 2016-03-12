@@ -13,7 +13,13 @@ block main
           span #{article.tag}
           span.date #{dateFormat(article.time)}
         .author
-          a(href="/member/#{article.author.username_db}") By #{article.author.username}
+          span
+            | #{lang.article.by}
+            a(href="/member/#{article.author.username_db}") #{article.author.username}
+          if article.quote.name != ''
+            span
+              | #{lang.article.from}
+              a(href=article.quote.url) #{article.quote.name}
     .container.container-small
       .article
         | !{article.content.html}

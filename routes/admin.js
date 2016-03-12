@@ -104,10 +104,11 @@ adminRouter.route('/article/new')
   .post(function (req, res) {
 
     var articleForm = req.body;
+    if (articleForm.title_short == '') {
+      return res.render('admin/deny');
+    }
 
     var articleHtml = marked(articleForm.content.source);
-    console.log(articleHtml);
-
     var _article = new Article({
       title: articleForm.title,
       title_short: utils.changeToDBStr(articleForm.title_short),
@@ -118,6 +119,10 @@ adminRouter.route('/article/new')
       content: {
         source:  articleForm.content.source,
         html: articleHtml
+      },
+      quote: {
+        name: articleForm.quote.name,
+        url: articleForm.quote.url
       }
     });
     _article.save(function (err, article) {
@@ -156,6 +161,9 @@ adminRouter.route('/article/:articleName')
   .post(function (req, res) {
     var articleForm = req.body;
     articleForm.title_short = utils.changeToDBStr(articleForm.title_short);
+    if (articleForm.title_short == '') {
+      return res.render('admin/deny');
+    }
     Article.findById(articleForm._id, function (err, article) {
       if (err) {console.log(err); return;}
       if (req.session.user.user_type != 'admin' && article.author._id != req.session.user._id) {

@@ -15,7 +15,11 @@ var ArticleSchema = new Schema({
   tag:          {type: String, default: ''},
   picture:      {type: String, default: ''},
   status:       {type: Number, default: 1},
-  click:        {type: Number, default: 0}
+  click:        {type: Number, default: 0},
+  quote: {
+    name:       {type: String, default: ''},
+    url:        {type: String, default: ''}
+  }
 });
 
 ArticleSchema.statics = {
