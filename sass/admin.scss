@@ -15,6 +15,10 @@
       max-width: 100%;
     }
 
+    > textarea#summary {
+      width: 60%;
+      min-height: 100px;
+    }
     > textarea#markdown {
       width: 100%;
       min-height: 400px;

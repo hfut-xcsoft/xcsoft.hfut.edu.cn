@@ -660,7 +660,7 @@ a.card:hover {
 .article p {
   margin: 0;
   font-size: 17px;
-  padding-bottom: 24px;
+  padding: 12px 0;
 }
 
 .article p img {
@@ -671,11 +671,19 @@ a.card:hover {
 
 .article a {
   color: #2A7CCC;
+  word-break: break-all;
 }
 
 .article li {
   line-height: 1.5;
   padding-bottom: 14px;
+}
+
+.article pre > code {
+  font-size: 14px;
+  border-radius: 16px;
+  padding: 16px;
+  line-height: 1.5;
 }
 
 .icon {
@@ -1127,6 +1135,11 @@ a.card:hover {
 
 #admin-main .form-group > img {
   max-width: 100%;
+}
+
+#admin-main .form-group > textarea#summary {
+  width: 60%;
+  min-height: 100px;
 }
 
 #admin-main .form-group > textarea#markdown {

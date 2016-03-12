@@ -1,6 +1,9 @@
 extends ../layout
 block title
   title #{article.title} - XC · SOFT
+block head
+  link(href='/assets/css/solarized-light.css', rel='stylesheet')
+  script(src='/assets/js/highlight.min.js')
 block main
   #main.articleDetail
     .header
@@ -14,3 +17,6 @@ block main
     .container.container-small
       .article
         | !{article.content.html}
+block jsCode
+  script.
+    hljs.initHighlightingOnLoad();

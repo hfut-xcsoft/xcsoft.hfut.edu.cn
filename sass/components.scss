@@ -321,7 +321,7 @@ a.card {
   p {
     margin: 0;
     font-size: 17px;
-    padding-bottom: 24px;
+    padding: 12px 0;
 
     img {
       max-width: 100%;
@@ -332,10 +332,18 @@ a.card {
 
   a {
     color: #2A7CCC;;
+    word-break:break-all;
   }
 
   li {
     line-height: 1.5;
     padding-bottom: 14px;
+  }
+
+  pre > code {
+    font-size: 14px;
+    border-radius: 16px;
+    padding: 16px;
+    line-height: 1.5
   }
 }
