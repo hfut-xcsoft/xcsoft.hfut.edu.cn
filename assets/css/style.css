@@ -244,6 +244,7 @@ nav {
   z-index: 2000;
   background-color: #8f4898;
   color: #ffffff;
+  box-shadow: 0 1px 13px 1px #8f4898;
 }
 
 @media (max-width: 479px) {
@@ -256,10 +257,6 @@ nav .container a,
 nav .container a:hover,
 nav .container a:visited {
   color: #ffffff;
-}
-
-nav .container a:hover {
-  border-bottom: 3px solid #ffffff;
 }
 
 nav .logo {
@@ -295,7 +292,7 @@ nav .tab-items > li a {
   padding: 0 10px 19px 10px;
 }
 
-nav .tab-items > li > a.active {
+nav .tab-items > li a.active, nav .tab-items > li a:hover {
   border-bottom: 3px solid #ffffff;
 }
 

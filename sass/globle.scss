@@ -110,6 +110,7 @@ nav {
   background-color: $purple-main;
   color: #ffffff;
   //box-shadow: #333 0 1px 4px;
+  box-shadow: 0 1px 13px 1px $purple-main;
 
   @include atSize(sm) {
     height: 56px;
@@ -122,9 +123,7 @@ nav {
       color: #ffffff;
     }
 
-    a:hover {
-      border-bottom: 3px solid #ffffff;
-    }
+
   }
 
 
@@ -155,10 +154,11 @@ nav {
       a {
         margin: 0 12px;
         padding: 0 10px 19px 10px;
-      }
 
-      > a.active {
-        border-bottom: 3px solid #ffffff;
+        &.active,
+        &:hover {
+          border-bottom: 3px solid #ffffff;
+        }
       }
     }
   }
