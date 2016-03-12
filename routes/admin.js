@@ -166,7 +166,7 @@ adminRouter.route('/article/:articleName')
     }
     Article.findById(articleForm._id, function (err, article) {
       if (err) {console.log(err); return;}
-      if (req.session.user.user_type != 'admin' && article.author._id != req.session.user._id) {
+      if (req.session.user.user_type != 'admin' && article.author != req.session.user._id) {
         return res.render('admin/deny');
       }
       articleForm.content.html = marked(articleForm.content["source"]);

@@ -4,7 +4,7 @@
  */
 var Config = {
 
-  assets_version: '0.9.9',
+  assets_version: '1.2.1',
 
   cdn: {
     development: {
