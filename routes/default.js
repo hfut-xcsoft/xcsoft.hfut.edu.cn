@@ -5,7 +5,7 @@ var baseUrl = require('../configs/config').baseUrl;
 var utils = require('../middlewares/utils');
 
 index.get('/', function (req, res) {
-  res.render('index');
+  res.redirect('/article');
 });
 
 index.get('/lang', function (req, res) {
