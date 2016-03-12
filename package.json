@@ -20,10 +20,12 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-sass": "^2.1.0",
-    "gulp-sourcemaps": "^1.6.0",
+    "gulp-sourcemaps": "^1.6.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "forever start app.js",
+    "stop": "forever stop app.js"
   },
   "repository": {
     "type": "git",

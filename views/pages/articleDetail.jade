@@ -14,11 +14,11 @@ block main
           span.date #{dateFormat(article.time)}
         .author
           span
-            | #{lang.article.by}
+            | #{lang.article.by}&nbsp;&nbsp;
             a(href="/member/#{article.author.username_db}") #{article.author.username}
           if article.quote.name != ''
             span
-              | #{lang.article.from}
+              | #{lang.article.from}&nbsp;&nbsp;
               a(href=article.quote.url) #{article.quote.name}
     .container.container-small
       .article
