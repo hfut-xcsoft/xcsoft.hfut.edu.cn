@@ -5,6 +5,7 @@ block main
     table
       thead
         th 文章标题
+        th 发布者
         th 点击数
         if user.user_type == 'admin'
           th 删除
@@ -12,6 +13,7 @@ block main
         each article in articleList
           tr
             td: a(href="/lib/admin/article/#{article.title_short}") #{article.title}
+            td #{article.author.real_name}
             td #{article.click}
             if user.user_type == 'admin'
               td: a(href="/lib/admin/article/remove/#{article.title_short}") #{article.status == 1 ? '删除' : '恢复'}

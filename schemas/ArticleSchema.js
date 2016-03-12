@@ -29,7 +29,8 @@ ArticleSchema.statics = {
   getAllArticles: function (callback) {
     return this
       .find({})
-      .populate('author', 'avatar')
+      .populate('author')
+      .populate('avatar')
       .sort({time: -1})
       .exec(callback);
   },

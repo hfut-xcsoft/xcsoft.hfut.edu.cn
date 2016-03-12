@@ -1,4 +1,6 @@
 extends ../layout
+block head
+  link(href='/assets/css/solarized-light.css', rel='stylesheet')
 block main
   div#admin-main
     form(method="post")
@@ -10,16 +12,20 @@ block main
         span 英文标题（作为URL标识文章，为带空格的单词或句子）
         input(name="title_short", value="#{article.title_short}")
       .form-group
-        span 作者
-        select(name="author")
-          each member in memberList
-            option(value="#{member._id}") #{member.username}
+        if user.user_type == 'admin'
+          span 作者
+            select(name="author")
+              each member in memberList
+                option(value="#{member._id}") #{member.username}
+        else
+          input(name="author", value="#{article.author._id}", style="display: none")
       .form-group
         span 标签
         input(name="tag", value="#{article.tag}")
       .form-group
         span 摘要
-        input(name="summary", value="#{article.summary}")
+        textarea(name="summary", id="summary")
+          | !{article.summary}
       .form-group
         span 图片
         img(id="img_pic", src="#{article.picture}")
@@ -38,6 +44,7 @@ block main
 block jsCode
   script(src="/assets/js/SimpleAjaxUploader.min.js")
   script(src="/assets/js/admin.js")
+  script(src='/assets/js/highlight.min.js')
   script.
     $(function () {
       $('select[name="author"]').val('#{article.author._id}');
@@ -46,6 +53,9 @@ block jsCode
         var content = $('textarea[name="content[source]"]').val();
         $.post('/lib/admin/article/preview', {content: content},function (data) {
           $('.article').html(data);
+          $('.article pre code').each(function (i, block) {
+            hljs.highlightBlock(block);
+          });
         })
       })
 

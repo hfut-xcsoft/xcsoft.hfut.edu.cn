@@ -53,7 +53,7 @@ adminRouter.route('/member/new')
         console.log(err);
         return;
       }
-      res.redirect(baseUrl + 'lib/admin/member/' + member.username_db);
+      res.redirect(baseUrl + 'lib/admin/member');
     });
   });
 
@@ -125,7 +125,7 @@ adminRouter.route('/article/new')
         console.log(err);
         return;
       }
-      res.redirect(baseUrl + 'lib/admin/article/' + article.title_short);
+      res.redirect(baseUrl + 'lib/admin/article');
     });
   });
 
@@ -158,11 +158,14 @@ adminRouter.route('/article/:articleName')
     articleForm.title_short = utils.changeToDBStr(articleForm.title_short);
     Article.findById(articleForm._id, function (err, article) {
       if (err) {console.log(err); return;}
+      if (req.session.user.user_type != 'admin' || article.author._id != req.session.user._id) {
+        return res.render('admin/deny');
+      }
       articleForm.content.html = marked(articleForm.content["source"]);
       var _article = _.extend(article, articleForm);
       _article.save(function (err, article) {
         if (err) {console.log(err); return;}
-        res.redirect(baseUrl + 'lib/admin/article/' + article.title_short);
+        res.redirect(baseUrl + 'lib/admin/article');
       });
     })
   })

@@ -9,16 +9,19 @@ block main
         span 英文标题（作为URL标识文章，为带空格的单词或句子）
         input(name="title_short")
       .form-group
-        span 作者
-        select(name="author")
-          each member in memberList
-            option(value="#{member._id}") #{member.username}
+        if user.user_type == 'admin'
+          span 作者
+            select(name="author")
+              each member in memberList
+                option(value="#{member._id}") #{member.username}
+        else
+          input(name="author", value="#{user._id}", style="display: none")
       .form-group
         span 标签
         input(name="tag")
       .form-group
         span 摘要
-        input(name="summary")
+        textarea(name="summary", id="summary")
       .form-group
         span 图片
         input.hide(name="picture")
@@ -32,6 +35,7 @@ block main
         input(type="submit")
       .article(style="background-color: #fff; width: 800px")
 block jsCode
+
   script(src="/assets/js/SimpleAjaxUploader.min.js")
   script(src="/assets/js/admin.js")
   script.
