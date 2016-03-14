@@ -20,6 +20,8 @@ var Config = {
 
   baseUrl: '/',
 
+  uploadUrl: '/file_upload.php?app=lib',
+
   // The port of app.js listening
   port: 3000,
 
@@ -40,7 +42,7 @@ var Config = {
   },
 
   //defaultLanguage: 'zh-cn',
-  defaultLanguage: 'en-us',
+  defaultLanguage: 'en-us'
 
 };
 

@@ -34,6 +34,7 @@ app.locals.moment = require('moment');
 app.locals.baseUrl= Config.baseUrl;
 app.locals.config = Config;
 app.locals.pretty = Config.noCompress;
+app.locals.uploadUrl = Config.uploadUrl;
 
 /**
  * Handle request by router or socket.io
