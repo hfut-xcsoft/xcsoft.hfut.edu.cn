@@ -21,7 +21,7 @@ block main
           span #{member.real_name}
       .form-group
         span 用到的技术（一行一个）
-        textarea(name="technology", value="")
+        textarea(name="technology")
           | !{project.technology}
       .form-group
         span 描述
@@ -62,7 +62,7 @@ block jsCode
       $(function () {
         var uploader = new ss.SimpleUpload({
           button: 'picture_upload',
-          url: '/file_upload.php?app=lib',
+          url: '!{uploadUrl}',
           name: 'imgFile',
           responseType: 'json',
           allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],

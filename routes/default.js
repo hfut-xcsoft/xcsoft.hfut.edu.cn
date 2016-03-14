@@ -1,11 +1,10 @@
 var index = require('express').Router();
 var Member = require('../models/Member');
 var sitemap = require('../middlewares/sitemap');
-var baseUrl = require('../configs/config').baseUrl;
 var utils = require('../middlewares/utils');
 
 index.get('/', function (req, res) {
-  res.render('index');
+  res.redirect('/article');
 });
 
 index.get('/lang', function (req, res) {
@@ -16,27 +15,9 @@ index.get('/lang', function (req, res) {
     setLang = 'zh-cn';
   }
   res.cookie('lang', setLang);
-  //res.redirect(req.headers.referer || '/');
   res.redirect('/');
 
 });
-
-index.route('/lib/login')
-  .get(function (req, res) {
-    res.render('admin/login');
-  })
-  .post(function (req, res) {
-    var username = utils.changeToDBStr(req.body.username);
-    var password = req.body.password;
-    Member.checkAccount(username, password, function (err, result) {
-      if (result == null) return res.render('admin/login', {
-        error: '用户名或密码错误'
-      });
-
-      req.session.user = result;
-      res.redirect(baseUrl + 'lib/admin/index');
-    })
-  });
 
 index.get('/lib/contact-us', function (req, res) {
   res.render('contactUs', {
