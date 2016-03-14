@@ -1,7 +1,5 @@
 extends ../layout
 
-- var isShow = function() {return }
-
 block main
   div#admin-main
     form(method="post")
@@ -27,6 +25,7 @@ block main
             option(value="1") 核心成员
             option(value="2") 普通成员
             option(value="3") 退役成员
+            option(value="0") 隐藏
       if user.user_type == 'admin'
         .form-group
           span 用户类型

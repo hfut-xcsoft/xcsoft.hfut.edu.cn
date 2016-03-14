@@ -8,7 +8,7 @@ var MemberSchema = new Schema({
   username:       {type: String,  default: ''},
   username_db:    {type: String,  default: ''},
   password:       {type: String,  default: ''},
-  role:           {type: Number,  default: 2},
+  role:           {type: Number,  default: 0},
   user_type:      {type: String,  default: ''},
   real_name:      {type: String,  default: ''},
   phone:          {type: String,  default: ''},
@@ -30,8 +30,26 @@ var MemberSchema = new Schema({
 
 MemberSchema.pre('save', function (next) {
   this.username_db = utils.changeToDBStr(this.username);
+  if (this.password.length != 32) {
+    this.password = utils.md5(this.password);
+  }
   next();
 });
+
+//MemberSchema.pre('find', function (next) {
+//  if (typeof this.password != "undefined") {
+//    console.log(this.password);
+//    this.password = utils.md5(this.password);
+//  }
+//  next();
+//});
+//MemberSchema.pre('findOne', function (next) {
+//  if (typeof this.password != "undefined") {
+//    console.log(this.password);
+//    this.password = utils.md5(this.password);
+//  }
+//  next();
+//});
 
 MemberSchema.statics = {
   getMemberByName: function (name, callback) {
@@ -55,9 +73,9 @@ MemberSchema.statics = {
 
   checkAccount: function (username, password, callback) {
     return this
-      .findOne({$and: [{username_db: username}, {password: password}]})
+      .findOne({$and: [{username_db: username}, {password: utils.md5(password)}]})
       .exec(callback);
   }
-}
+};
 
 module.exports = MemberSchema;

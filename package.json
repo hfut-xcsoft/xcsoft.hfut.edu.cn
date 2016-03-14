@@ -24,8 +24,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "forever start app.js",
-    "stop": "forever stop app.js"
+    "start": "node app.js",
+    "start-forever": "forever start app.js",
+    "stop-forever": "forever stop app.js"
   },
   "repository": {
     "type": "git",
