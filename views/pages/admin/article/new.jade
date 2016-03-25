@@ -1,4 +1,6 @@
 extends ../layout
+block head
+  link(href='/assets/css/solarized-light.css', rel='stylesheet')
 block main
   div#admin-main
     form(method="post")
@@ -44,6 +46,7 @@ block jsCode
 
   script(src="/assets/js/SimpleAjaxUploader.min.js")
   script(src="/assets/js/admin.js")
+  script(src='/assets/js/highlight.min.js')
   script.
     $(function () {
 
@@ -51,6 +54,9 @@ block jsCode
         var content = $('textarea[name="content[source]"]').val();
         $.post('/lib/admin/article/preview', {content: content},function (data) {
           $('.article').html(data);
+          $('.article pre code').each(function (i, block) {
+            hljs.highlightBlock(block);
+          });
         })
       })
 
