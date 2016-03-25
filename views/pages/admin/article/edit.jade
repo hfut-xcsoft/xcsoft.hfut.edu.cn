@@ -49,9 +49,9 @@ block main
 
 block jsCode
   script(src="/assets/js/SimpleAjaxUploader.min.js")
-  script(src="/assets/js/admin.js")
   script(src='/assets/js/highlight.min.js')
   script.
+    var uploadUrl = '!{uploadUrl}'
     $(function () {
       $('select[name="author"]').val('#{article.author._id}');
 
@@ -67,7 +67,7 @@ block jsCode
 
       var uploader = new ss.SimpleUpload({
         button: 'picture_upload',
-        url: '!{uploadUrl}',
+        url: uploadUrl,
         name: 'imgFile',
         responseType: 'json',
         allowedExtensions: ['jpg', 'jpeg', 'png', 'gif', 'svg'],
@@ -87,3 +87,4 @@ block jsCode
         }
       });
     })
+  script(src="/assets/js/admin.js")
