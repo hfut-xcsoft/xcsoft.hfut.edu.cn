@@ -178,6 +178,18 @@ adminRouter.route('/article/:articleName')
     })
   })
 
+adminRouter.get('/article/remove/:articleName/:status', function (req, res) {
+  var articleName = req.params.articleName;
+  var status = 0 + req.params.status;
+  Article.changeStatus(articleName, status, function (err, article) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.redirect(baseUrl + 'lib/admin/article');
+  })
+})
+
 
 
 

@@ -7,7 +7,7 @@ articleRoute.get('/', function (req, res) {
   step(
     function () {
 
-      Article.getAllArticles(this.parallel());
+      Article.getAllArticles(this.parallel(), false);
       Article.getClickRankList(this.parallel());
 
     },

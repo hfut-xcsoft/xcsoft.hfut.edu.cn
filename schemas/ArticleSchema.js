@@ -30,9 +30,13 @@ ArticleSchema.statics = {
       .exec(callback);
   },
 
-  getAllArticles: function (callback) {
+  getAllArticles: function (callback, showHide) {
+    if (showHide == undefined) {
+      showHide = true;
+    }
+    var query = showHide ? {} : {status: 1};
     return this
-      .find({})
+      .find(query)
       .populate('author')
       .populate('avatar')
       .sort({time: -1})
@@ -50,6 +54,12 @@ ArticleSchema.statics = {
   addClickByName: function (name, click, callback) {
     return this
       .update({title_short: name}, {'$set': {click: click + 1}})
+      .exec(callback);
+  },
+
+  changeStatus: function (name, status, callback) {
+    return this
+      .update({title_short: name}, {'$set': {status: status}})
       .exec(callback);
   }
 }

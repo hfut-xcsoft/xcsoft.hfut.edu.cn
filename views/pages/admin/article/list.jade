@@ -11,9 +11,10 @@ block main
           th 删除
       tbody
         each article in articleList
-          tr
-            td: a(href="/lib/admin/article/#{article.title_short}") #{article.title}
-            td #{article.author.real_name}
-            td #{article.click}
-            if user.user_type == 'admin'
-              td: a(href="/lib/admin/article/remove/#{article.title_short}") #{article.status == 1 ? '删除' : '恢复'}
+          if article.status || user.user_type == 'admin'
+            tr
+              td: a(href="/lib/admin/article/#{article.title_short}") #{article.title}
+              td #{article.author.real_name}
+              td #{article.click}
+              if user.user_type == 'admin'
+                td: a(href="/lib/admin/article/remove/#{article.title_short}/#{0 + !article.status}") #{article.status == 1 ? '隐藏' : '恢复'}
