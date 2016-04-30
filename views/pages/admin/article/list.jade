@@ -8,6 +8,7 @@ block main
         th 发布者
         th 点击数
         if user.user_type == 'admin'
+          th 隐藏
           th 删除
       tbody
         each article in articleList
@@ -17,4 +18,5 @@ block main
               td #{article.author.real_name}
               td #{article.click}
               if user.user_type == 'admin'
-                td: a(href="/lib/admin/article/remove/#{article.title_short}/#{0 + !article.status}") #{article.status == 1 ? '隐藏' : '恢复'}
+                td: a(href="/lib/admin/article/hide/#{article.title_short}/#{0 + !article.status}") #{article.status == 1 ? '隐藏' : '恢复'}
+                td: a(href="/lib/admin/article/remove/#{article.title_short}") 删除

@@ -61,7 +61,13 @@ ArticleSchema.statics = {
     return this
       .update({title_short: name}, {'$set': {status: status}})
       .exec(callback);
+  },
+
+  deleteArticle: function (name, callback) {
+    return this
+      .remove({title_short: name})
+      .exec(callback)
   }
-}
+};
 
 module.exports = ArticleSchema;
