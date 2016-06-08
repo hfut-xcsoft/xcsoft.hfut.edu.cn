@@ -115,6 +115,7 @@ adminRouter.route('/article/new')
       summary: articleForm.summary,
       author: articleForm.author,
       tag: articleForm.tag,
+      picture: articleForm.picture,
       status: 1,
       content: {
         source:  articleForm.content.source,
