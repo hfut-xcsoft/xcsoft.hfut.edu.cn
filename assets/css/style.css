@@ -922,13 +922,13 @@ a.card:hover {
   }
 }
 
-.articlelist #ranklist > .subtitle {
+.articlelist .right-list .subtitle {
   padding: 16px 32px;
   color: #a467a7;
   font-size: 18px;
 }
 
-.articlelist #ranklist .list a {
+.articlelist .right-list .list a {
   display: block;
   padding: 0 16px;
   height: 48px;

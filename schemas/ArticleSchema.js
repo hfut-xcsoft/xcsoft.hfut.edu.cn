@@ -45,7 +45,7 @@ ArticleSchema.statics = {
 
   getClickRankList: function (callback) {
     return this
-      .find({}, 'title title_short')
+      .find({time: {$gt: Date.now() - 3600e3 * 24 * 180}}, 'title title_short')
       .where()
       .sort({'click': -1})
       .exec(callback);

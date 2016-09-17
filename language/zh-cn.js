@@ -15,6 +15,7 @@ module.exports = {
   article: {
     header_text: '提供最有用的技术知识，让我们共同学习',
     rank_list: '排行榜',
+    links: '友情链接',
     by: '编辑：',
     from: '来源：'
   },

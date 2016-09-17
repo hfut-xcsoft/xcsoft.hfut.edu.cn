@@ -15,6 +15,7 @@ module.exports = {
   article: {
     header_text: 'Let\'s study the most valuable knowledge and technology',
     rank_list: 'Rank List',
+    links: 'Links',
     by: 'By',
     from: 'From'
   },

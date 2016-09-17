@@ -30,11 +30,17 @@ block main
                     img(src="#{article.picture}")
                   .summary #{article.summary}
         .col-lg-3
-          .card#ranklist
+          .card.right-list#ranklist
             .subtitle #{lang.article.rank_list}
             .list
               each article in clickRankList
                 a(href="/article/#{article.title_short}") #{article.title}
+          .card.right-list
+            .subtitle #{lang.article.links}
+            .list
+              a(href="https://dremy.cn") Dremy_博客
+              a(href="https://liujunming.top") L's Blog
+
 
 block jsCode
   script.
